@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         GatherInput();
         Look();
+
     }
 
     private void FixedUpdate()
@@ -39,7 +40,16 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.deltaTime);
+        //_rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.fixedDeltaTime);
+        if(_input.x  > 0 || _input.x < 0 || _input.z > 0 || _input.z < 0)
+        {
+            _rb.velocity = transform.forward * _speed * Time.fixedDeltaTime;
+        }
+        else
+        {
+            _rb.velocity = new Vector3(0, 0, 0);
+        }
+       
     }
 }
 
