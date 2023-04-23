@@ -15,18 +15,25 @@ public enum TypeOfQuest
 public class QuestSO : ScriptableObject
 {
     [SerializeField] TypeOfQuest currentTypeOfQuest;
-    public bool questIsPerformed = false;
+    public bool isQuestCompleted = false;
     public int amountOfAllTasks = 3;
+    public int startAmountOfAllTasks = 3;
     public int currentAmountOfPerformedTasks = 0;
 
+    private void OnEnable()
+    {
+        isQuestCompleted = false;
+        amountOfAllTasks = startAmountOfAllTasks;
+        currentAmountOfPerformedTasks = 0;
+    }
     public void PerformTask()
     {
         currentAmountOfPerformedTasks++;
         Debug.Log("task is performed!");
         if (currentAmountOfPerformedTasks == amountOfAllTasks)
         {
-            questIsPerformed = true;
-            Debug.Log("quest is performed!");
+            isQuestCompleted = true;
+            Debug.Log("quest is completed!");
         }
     }
 }

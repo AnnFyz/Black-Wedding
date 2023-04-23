@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3914c4f7403d07c40bf82b55287e076b, type: 3}
   m_Name: FirstQuest
   m_EditorClassIdentifier: 
+  currentTypeOfQuest: 0
+  isQuestCompleted: 0
+  amountOfAllTasks: 1
+  startAmountOfAllTasks: 1
+  currentAmountOfPerformedTasks: 0
