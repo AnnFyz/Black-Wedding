@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeOfUIPanel
+public enum TypeOfInteraction
 {
     dialog,
     interObj
@@ -11,7 +11,8 @@ public class InteractionHandler : MonoBehaviour
 {
     [SerializeField] Transform interactionSymb;
     [SerializeField] Transform uiPanel;
-    public TypeOfUIPanel currentTypeOfUIPanel;
+    [SerializeField] QuestSO quest;
+    public TypeOfInteraction currentTypeOfInteraction;
     private void Start()
     {
         Time.timeScale = 1;
@@ -62,6 +63,10 @@ public class InteractionHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             ShowUIPanel();
+           if(currentTypeOfInteraction == TypeOfInteraction.interObj)
+            {
+                quest.PerformTask();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
