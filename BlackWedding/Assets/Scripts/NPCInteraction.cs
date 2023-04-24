@@ -11,7 +11,6 @@ public class NPCInteraction : MonoBehaviour
     bool isPlayerNearby = false;
     private void Start()
     {
-        //Time.timeScale = 1;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
         defaultAngle = transform.rotation.eulerAngles;
@@ -74,6 +73,7 @@ public class NPCInteraction : MonoBehaviour
             uiPanel.gameObject.SetActive(false);
             interactionSymb.gameObject.SetActive(true);
             Time.timeScale = 1;
+            PlayerController.IsPaused = false;
         }
     }
 

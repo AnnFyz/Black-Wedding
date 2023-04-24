@@ -44,14 +44,12 @@ public class InteractionHandler : MonoBehaviour
             uiPanel.gameObject.SetActive(true);
             interactionSymb.gameObject.SetActive(false);
             Time.timeScale = 0;
-            PlayerController.IsPaused = true;
         }
         else
         {
             uiPanel.gameObject.SetActive(false);
             //interactionSymb.gameObject.SetActive(true);
             Time.timeScale = 1;
-            //PlayerController.IsPaused = false;
         }
     }
 
