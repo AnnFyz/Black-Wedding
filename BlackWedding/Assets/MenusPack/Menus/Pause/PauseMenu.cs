@@ -23,10 +23,12 @@ public class PauseMenu : MonoBehaviour
         if (ui.activeSelf)
         {
             Time.timeScale = 0f;
+            PlayerController.IsPaused = true;
         }
         else
         {
             Time.timeScale = 1f;
+            PlayerController.IsPaused = false;
         }
     }
 

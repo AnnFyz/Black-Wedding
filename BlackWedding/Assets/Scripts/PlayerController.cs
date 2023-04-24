@@ -8,21 +8,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _turnSpeed = 360;
     private Vector3 _input;
-
+    public static bool IsPaused = false;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
-        GatherInput();
-        Look();
-
+        if (!IsPaused)
+        {
+            GatherInput();
+            Look();
+        }
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (!IsPaused)
+        {
+            Move();
+        }       
     }
 
     private void GatherInput()
