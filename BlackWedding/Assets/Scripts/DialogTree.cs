@@ -32,7 +32,7 @@ public class DialogTree : MonoBehaviour
     {
         NPCText.text = newNPCText;
         isItTimeForResponse = true;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         isCoroutineExecuting = false;
         if (isItTimeForResponse)
         {
@@ -41,18 +41,18 @@ public class DialogTree : MonoBehaviour
                 answers[i].SetActive(false);
             }
 
-            StartCoroutine(ExecuteAfterTime(1f));
+            StartCoroutine(ExecuteAfterTime(3f));
         }
        
     }
 
     IEnumerator ExecuteAfterTime(float time)
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         while (!isCoroutineExecuting)
         {
             isCoroutineExecuting = true;
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSecondsRealtime(time);
             UIhandler.CloseUIPanel();
             isCoroutineExecuting = false;
         }      
