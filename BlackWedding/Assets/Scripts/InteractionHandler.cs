@@ -48,7 +48,7 @@ public class InteractionHandler : MonoBehaviour
         else
         {
             uiPanel.gameObject.SetActive(false);
-            interactionSymb.gameObject.SetActive(true);
+            //interactionSymb.gameObject.SetActive(true);
             Time.timeScale = 1;
         }
     }
@@ -78,7 +78,7 @@ public class InteractionHandler : MonoBehaviour
     {
         uiPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
-        interactionSymb.gameObject.SetActive(true);
+        //interactionSymb.gameObject.SetActive(true);
     }
 
     private void Update()
