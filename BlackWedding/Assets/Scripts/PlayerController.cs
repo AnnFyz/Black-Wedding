@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _turnSpeed = 360;
     private Vector3 _input;
     public static bool IsPaused = false;
+    public bool paused = IsPaused;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -20,7 +21,9 @@ public class PlayerController : MonoBehaviour
             GatherInput();
             Look();
         }
-    }
+
+     paused = IsPaused;
+}
 
     private void FixedUpdate()
     {
