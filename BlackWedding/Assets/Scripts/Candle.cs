@@ -19,12 +19,20 @@ public class Candle : MonoBehaviour
     [SerializeField] float minTimeToRandomExtinguish = 5f;
     bool isPlayerNearby = false;
     public bool isCoroutineExecuting = false;
+    public new Renderer renderer;
+    public Material extinguishedMat;
+    public Material litMat;
+
+    private void Awake()
+    {
+        renderer = GetComponent<Renderer>();
+    }
     private void Start()
     {
         currentState = (CandleState)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CandleState)).Length);
-        //currentState = CandleState.lit;
         RandomExtinguish();
         interactionSymb.gameObject.SetActive(false);
+        SetRightMatAndParticles();
     }
 
     private void Update()
@@ -33,6 +41,7 @@ public class Candle : MonoBehaviour
         {
             currentState = CandleState.lit;
             timeToRandomExtinguish = UnityEngine.Random.Range(minTimeToRandomExtinguish, maxTimeToRandomExtinguish);
+            SetRightMatAndParticles();
         }
 
         if (!isCoroutineExecuting)
@@ -72,15 +81,24 @@ public class Candle : MonoBehaviour
             new WaitForSeconds(5);
             currentState = (CandleState)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CandleState)).Length);
             Debug.Log(currentState);
+            SetRightMatAndParticles();
             yield return new WaitForSeconds(time);
         }
         isCoroutineExecuting = false;
     }
 
-    void Extinguish()
+    void SetRightMatAndParticles()
     {
-
+        if (currentState == CandleState.extinguished)
+        {
+            renderer.material = extinguishedMat;
+        }
+        if (currentState == CandleState.lit)
+        {
+            renderer.material = litMat;
+        }
     }
+
     void Perform()
     {
         quest.PerformTask();

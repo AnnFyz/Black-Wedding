@@ -1260,7 +1260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0ef9a5d6b8e880429c13df405bf7024, type: 2}
+  - {fileID: 2100000, guid: 640a1ef7cb921964a817e9b717c9568c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1323,6 +1323,12 @@ MonoBehaviour:
   quest: {fileID: 0}
   currentState: 0
   timeToRandomExtinguish: 5
+  maxTimeToRandomExtinguish: 15
+  minTimeToRandomExtinguish: 5
+  isCoroutineExecuting: 0
+  renderer: {fileID: 0}
+  extinguishedMat: {fileID: 2100000, guid: 640a1ef7cb921964a817e9b717c9568c, type: 2}
+  litMat: {fileID: 2100000, guid: b0ef9a5d6b8e880429c13df405bf7024, type: 2}
 --- !u!136 &477066845
 CapsuleCollider:
   m_ObjectHideFlags: 0
