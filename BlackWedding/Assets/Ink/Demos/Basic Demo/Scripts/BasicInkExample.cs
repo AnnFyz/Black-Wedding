@@ -27,7 +27,6 @@ public class BasicInkExample : MonoBehaviour {
 	void RefreshView () {
 		// Remove all the UI on screen
 		RemoveChildren ();
-		
 		// Read all the content until we can't continue any more
 		while (story.canContinue) {
 			// Continue gets the next line of the story
@@ -56,45 +55,9 @@ public class BasicInkExample : MonoBehaviour {
 				StartStory();
 			});
 		}
-	}
+		Canvas.ForceUpdateCanvases();
 
-	void RefreshViewObj()
-	{
-		// Remove all the UI on screen
-		RemoveChildren();
 
-		// Read all the content until we can't continue any more
-		while (story.canContinue)
-		{
-			// Continue gets the next line of the story
-			string text = story.Continue();
-			// This removes any white space from the text.
-			text = text.Trim();
-			// Display the text on screen!
-			CreateContentView(text);
-		}
-
-		// Display all the choices, if there are any!
-		if (story.currentChoices.Count > 0)
-		{
-			for (int i = 0; i < story.currentChoices.Count; i++)
-			{
-				Choice choice = story.currentChoices[i];
-				GameObject button = CreateChoiceViewObj(choice.text.Trim());
-				// Tell the button what to do when we press it
-				button.gameObject.GetComponentInChildren<Button>().onClick.AddListener(delegate {
-					OnClickChoiceButton(choice);
-				});
-			}
-		}
-		// If we've read all the content and there's no choices, the story is finished!
-		else
-		{
-			Button choice = CreateChoiceView("End of story.\nRestart?");
-			choice.onClick.AddListener(delegate {
-				StartStory();
-			});
-		}
 	}
 
 	// When we click the choice button, tell the story to choose that choice!
@@ -105,9 +68,10 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		Text storyText = Instantiate (textPrefab) as Text;
+		TMP_Text storyText = Instantiate (textPrefab) as TMP_Text;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
+		canvas.GetComponent<VerticalLayoutGroup>().spacing = 0;
 	}
 
 	// Creates a button showing the choice text
@@ -115,34 +79,17 @@ public class BasicInkExample : MonoBehaviour {
 		// Creates the button from a prefab
 		Button choice = Instantiate (buttonPrefab) as Button;
 		choice.transform.SetParent (canvas.transform, false);
-		
+
 		// Gets the text from the button prefab
-		Text choiceText = choice.GetComponentInChildren<Text> ();
+		TMP_Text choiceText = choice.GetComponentInChildren<TMP_Text> ();
 		choiceText.text = text;
 
 		// Make the button expand to fit the text
 		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
 		layoutGroup.childForceExpandHeight = false;
-
 		return choice;
 	}
 
-	GameObject CreateChoiceViewObj(string text)
-	{
-		// Creates the button from a prefab
-		GameObject choice = Instantiate(answerButtonPrefab);
-		choice.transform.SetParent(canvas.transform, false);
-
-		// Gets the text from the button prefab
-		TMP_Text choiceText = choice.GetComponentInChildren<TMP_Text>();
-		choiceText.text = text;
-
-		// Make the button expand to fit the text
-		HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
-		layoutGroup.childForceExpandHeight = false;
-
-		return choice;
-	}
 
 	// Destroys all the children of this gameobject (all the UI)
 	void RemoveChildren () {
@@ -162,10 +109,7 @@ public class BasicInkExample : MonoBehaviour {
 	// UI Prefabs
 	[SerializeField]
 	//private Text textPrefab = null;
-	private Text textPrefab = null;
+	private TMP_Text textPrefab = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
-	[SerializeField]
-	private GameObject answerButtonPrefab = null;
-
 }
