@@ -479,8 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743856995df44422c886fc8318db00e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTickTimer: 0
-  inkJSONAsset: {fileID: 0}
-  canvas: {fileID: 0}
-  textPrefab: {fileID: 0}
-  buttonPrefab: {fileID: 0}
+  gameTickTimer: 2
+  inkJSONAsset: {fileID: 4900000, guid: 156202f3455365748bee390548afe7e7, type: 3}
+  canvas: {fileID: 1908123726}
+  textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
+  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
