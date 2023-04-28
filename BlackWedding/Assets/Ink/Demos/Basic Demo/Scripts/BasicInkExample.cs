@@ -15,7 +15,8 @@ public class BasicInkExample : MonoBehaviour {
 	}
 
 	// Creates a new Story object with the compiled story which we can then play!
-	void StartStory () {
+	void StartStory () 
+	{
 		story = new Story (inkJSONAsset.text);
         if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
@@ -56,8 +57,6 @@ public class BasicInkExample : MonoBehaviour {
 			});
 		}
 		Canvas.ForceUpdateCanvases();
-
-
 	}
 
 	// When we click the choice button, tell the story to choose that choice!
@@ -68,7 +67,15 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		TMP_Text storyText = Instantiate (textPrefab) as TMP_Text;
+		if (story.currentTags.Count > 0)
+		{
+			storyText = Instantiate(textPrefabItalic) as TMP_Text;
+			story.currentTags.Contains("Italic");
+		}
+        else
+        {
+			storyText = Instantiate(textPrefab) as TMP_Text;
+		}
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
 		canvas.GetComponent<VerticalLayoutGroup>().spacing = 0;
@@ -82,8 +89,8 @@ public class BasicInkExample : MonoBehaviour {
 
 		// Gets the text from the button prefab
 		TMP_Text choiceText = choice.GetComponentInChildren<TMP_Text> ();
-		choiceText.text = text;
-
+		//choiceText.text = text;
+		choiceText.text = text.Trim();
 		// Make the button expand to fit the text
 		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
 		layoutGroup.childForceExpandHeight = false;
@@ -110,6 +117,9 @@ public class BasicInkExample : MonoBehaviour {
 	[SerializeField]
 	//private Text textPrefab = null;
 	private TMP_Text textPrefab = null;
+	[SerializeField]
+	private TMP_Text textPrefabItalic = null;
+	private TMP_Text storyText = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
 }

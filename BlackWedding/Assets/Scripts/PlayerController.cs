@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
             Look();
         }
 
-     paused = IsPaused;
-}
+    }
 
     private void FixedUpdate()
     {
