@@ -68,4 +68,13 @@ public class ObjectInteraction : MonoBehaviour
         interactionSymb.gameObject.SetActive(true);
     }
 
+
+    void Perform()
+    {
+        if (uiPanel.gameObject.activeSelf)
+        {
+    
+          quest.PerformTask();
+        }
+    }
 }

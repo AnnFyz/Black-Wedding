@@ -924,10 +924,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasStoryTold: 0
-  inkJSONAsset: {fileID: 4900000, guid: 5ebdf7adffc47d340b44461ff5df9164, type: 3}
+  wasStoryTold: 
+  currentInkJSONAsset: {fileID: 4900000, guid: 5ebdf7adffc47d340b44461ff5df9164, type: 3}
   canvas: {fileID: 4942173053989013978}
-  textPrefab: {fileID: 4351313996207320000, guid: e89f0cbd29d68ad40bc3913979d8bb5e,
+  TextPrefab: {fileID: 4351313996207320000, guid: e89f0cbd29d68ad40bc3913979d8bb5e,
     type: 3}
   textPrefabItalic: {fileID: 4351313996207320000, guid: b39dbe2741363324da19e004870c7271,
     type: 3}

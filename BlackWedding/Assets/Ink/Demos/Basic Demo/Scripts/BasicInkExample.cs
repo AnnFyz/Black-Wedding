@@ -74,7 +74,7 @@ public class BasicInkExample : MonoBehaviour {
 		}
         else
         {
-			storyText = Instantiate(currentTextPrefab) as TMP_Text;
+			storyText = Instantiate(TextPrefab) as TMP_Text;
 		}
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
@@ -116,8 +116,7 @@ public class BasicInkExample : MonoBehaviour {
 
 	// UI Prefabs
 	[SerializeField]
-	//private Text textPrefab = null;
-	private TMP_Text currentTextPrefab = null; // 	
+	private TMP_Text TextPrefab = null; 
 	[SerializeField]
 	private TMP_Text textPrefabItalic = null;
 	private TMP_Text storyText = null;
