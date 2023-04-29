@@ -7,7 +7,7 @@ using TMPro;
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
-	
+	public bool[] wasStoryTold;
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
@@ -17,7 +17,7 @@ public class BasicInkExample : MonoBehaviour {
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () 
 	{
-		story = new Story (inkJSONAsset.text);
+		story = new Story (currentInkJSONAsset.text);
         if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
@@ -74,7 +74,7 @@ public class BasicInkExample : MonoBehaviour {
 		}
         else
         {
-			storyText = Instantiate(textPrefab) as TMP_Text;
+			storyText = Instantiate(currentTextPrefab) as TMP_Text;
 		}
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
@@ -107,7 +107,8 @@ public class BasicInkExample : MonoBehaviour {
 	}
 
 	[SerializeField]
-	private TextAsset inkJSONAsset = null;
+	private TextAsset currentInkJSONAsset = null;
+	private TextAsset[] inkJSONAssets;
 	public Story story;
 
 	[SerializeField]
@@ -116,7 +117,7 @@ public class BasicInkExample : MonoBehaviour {
 	// UI Prefabs
 	[SerializeField]
 	//private Text textPrefab = null;
-	private TMP_Text textPrefab = null;
+	private TMP_Text currentTextPrefab = null; // 	
 	[SerializeField]
 	private TMP_Text textPrefabItalic = null;
 	private TMP_Text storyText = null;

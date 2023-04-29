@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
+    public enum NPCState
+    {
+        interactable,
+        notInteractable
+    }
+
+    public enum NPCTitle
+    {
+        priest,
+        mother,
+        painter
+    }
+
     [SerializeField] Transform interactionSymb;
     [SerializeField] Transform uiPanel;
     public QuestSO quest;
     public Vector3 defaultAngle;
     bool isPlayerNearby = false;
+    NPCState currentNPCState;
     private void Start()
     {
+        NPCState currentNPCState = NPCState.interactable;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
         defaultAngle = transform.rotation.eulerAngles;
