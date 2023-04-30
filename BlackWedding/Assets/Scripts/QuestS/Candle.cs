@@ -11,62 +11,49 @@ public class Candle : MonoBehaviour
         extinguished
     }
 
-    [SerializeField] Transform interactionSymb;
-    public QuestSO quest;
     [SerializeField] CandleState currentState;
-    [SerializeField] float timeToRandomExtinguish = 5f;
+    [SerializeField] float timeToRandomExtinguish = 0f;
     [SerializeField] float maxTimeToRandomExtinguish = 15f;
     [SerializeField] float minTimeToRandomExtinguish = 5f;
-    bool isPlayerNearby = false;
     public bool isCoroutineExecuting = false;
     public new Renderer renderer;
     public Material extinguishedMat;
     public Material litMat;
-
+    ObjectInteraction objectInteraction;
+    public bool  wasTaskPerformed = false;
+    public bool wasCandleQuestPerformed = false;
     private void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        objectInteraction = GetComponent<ObjectInteraction>();
+        objectInteraction.isQuestObj = true;
     }
     private void Start()
     {
+        objectInteraction.quest.OnCompeletedQuest += CancelExtinguishAfterCompletingQuest;
         currentState = (CandleState)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CandleState)).Length);
         RandomExtinguish();
-        interactionSymb.gameObject.SetActive(false);
         SetRightMatAndParticles();
+        timeToRandomExtinguish = UnityEngine.Random.Range(minTimeToRandomExtinguish, maxTimeToRandomExtinguish);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)
+        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && currentState != CandleState.lit && !wasTaskPerformed)
         {
+            Debug.Log("Make lit");
             currentState = CandleState.lit;
-            timeToRandomExtinguish = UnityEngine.Random.Range(minTimeToRandomExtinguish, maxTimeToRandomExtinguish);
             SetRightMatAndParticles();
+            IncreaseTimeForRandomExtinguish();
+            Perform();
+            wasTaskPerformed = true;
         }
 
-        if (!isCoroutineExecuting)
+        if (!isCoroutineExecuting && !wasCandleQuestPerformed)
         {
             RandomExtinguish();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            interactionSymb.gameObject.SetActive(true);
-            isPlayerNearby = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            interactionSymb.gameObject.SetActive(false);
-            isPlayerNearby = false;
-        }
-    }
 
     void RandomExtinguish()
     {
@@ -78,11 +65,11 @@ public class Candle : MonoBehaviour
         while (currentState == CandleState.lit && !isCoroutineExecuting)
         {
             isCoroutineExecuting = true;
-            new WaitForSeconds(5);
-            currentState = (CandleState)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CandleState)).Length);
+            yield return new WaitForSeconds(time);
+            currentState = CandleState.extinguished;
+            ReversePerformed();
             Debug.Log(currentState);
             SetRightMatAndParticles();
-            yield return new WaitForSeconds(time);
         }
         isCoroutineExecuting = false;
     }
@@ -101,6 +88,29 @@ public class Candle : MonoBehaviour
 
     void Perform()
     {
-        quest.PerformQuestObjTask();
+        if (!wasTaskPerformed)
+        {
+            objectInteraction.quest.PerformQuestObjTask();
+        }
+    }
+
+    void ReversePerformed()
+    {
+        if (wasTaskPerformed)
+        {
+            objectInteraction.quest.ReversePerformedQuestObjTask();
+            wasTaskPerformed = false;
+        }
+    }
+    void IncreaseTimeForRandomExtinguish()
+    {
+        maxTimeToRandomExtinguish *= 1.2f;
+        minTimeToRandomExtinguish *= 1.2f;
+        timeToRandomExtinguish = UnityEngine.Random.Range(minTimeToRandomExtinguish, maxTimeToRandomExtinguish);
+    }
+
+    void CancelExtinguishAfterCompletingQuest()
+    {
+        wasCandleQuestPerformed = true;
     }
 }

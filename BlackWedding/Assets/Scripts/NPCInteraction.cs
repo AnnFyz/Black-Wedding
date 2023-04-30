@@ -28,6 +28,7 @@ public class NPCInteraction : MonoBehaviour
 
     private void Start()
     {
+        QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
@@ -126,5 +127,10 @@ public class NPCInteraction : MonoBehaviour
                 wasTaskPerformed = true;
             }
         }
+    }
+
+    void UpdateRefToQuest()
+    {
+        quest = QuestManager.Instance.currentQuest;
     }
 }

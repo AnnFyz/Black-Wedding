@@ -8,13 +8,14 @@ public class ObjectInteraction : MonoBehaviour
     public Transform uiPanel;
     public QuestSO quest;
     public bool isPlayerNearby = false;
-    bool wasTaskPerformed = false;
+    public bool wasTaskPerformed = false;
     public PlayerController player;
     public bool isQuestObj = false;
     public bool isInteractable = false;
 
     private void Start()
     {
+        QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
@@ -28,7 +29,7 @@ public class ObjectInteraction : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable && !isQuestObj)
         {
 
             ShowUIPanel();
@@ -101,5 +102,10 @@ public class ObjectInteraction : MonoBehaviour
     void MakeQuestObjInteractable()
     {
         isInteractable = true;
+    }
+
+    void UpdateRefToQuest ()
+    {
+        quest = QuestManager.Instance.currentQuest;
     }
 }

@@ -8,7 +8,7 @@ public enum TypeOfQuest
     GatheringInformation,
     LightCandles,
     GatherFlowers,
-    FindingAndReturningOfTornPage,
+    LightHolyCandle,
     ChangeFrescoes
 }
 
@@ -43,7 +43,7 @@ public class QuestSO : ScriptableObject
     {
         currentAmountOfPerformedObjTasks++;
         Debug.Log("interaction with obj is performed!");
-        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks == amountOfAllWithQuestObjInteractions)
+        if (currentAmountOfPerformedObjTasks >= amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks >= amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks >= amountOfAllWithQuestObjInteractions)
         {
             isQuestCompleted = true;
             OnCompeletedQuest?.Invoke();
@@ -55,7 +55,7 @@ public class QuestSO : ScriptableObject
     {
         currentAmountOfPerformedNPCTasks++;
         Debug.Log("interaction with NPC is performed!");
-        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks == amountOfAllWithQuestObjInteractions)
+        if (currentAmountOfPerformedObjTasks >= amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks >= amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks >= amountOfAllWithQuestObjInteractions)
         {
             isQuestCompleted = true;
             OnCompeletedQuest?.Invoke();
@@ -67,12 +67,18 @@ public class QuestSO : ScriptableObject
     {
         currentAmountOfPerformedQuestObjTasks++;
         Debug.Log("interaction with questObj is performed!");
-        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks == amountOfAllWithQuestObjInteractions)
+        if (currentAmountOfPerformedObjTasks >= amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks >= amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks >= amountOfAllWithQuestObjInteractions)
         {
             isQuestCompleted = true;
             OnCompeletedQuest?.Invoke();
             Debug.Log("quest is completed!");
         }
+    }
+
+    public void ReversePerformedQuestObjTask()
+    {
+        currentAmountOfPerformedQuestObjTasks--;
+        Debug.Log("interaction with questObj was reversed!");
     }
 
     public void MakeObjInteractable()
