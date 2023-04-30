@@ -8,6 +8,7 @@ public class ObjectInteraction : MonoBehaviour
     [SerializeField] Transform uiPanel;
     public QuestSO quest;
     bool isPlayerNearby = false;
+    bool wasTaskPerformed = false;
     private void Start()
     {
         uiPanel.gameObject.SetActive(false);
@@ -21,7 +22,11 @@ public class ObjectInteraction : MonoBehaviour
         {
 
             ShowUIPanel();
-
+            if (!wasTaskPerformed)
+            {
+                Perform();
+                wasTaskPerformed = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

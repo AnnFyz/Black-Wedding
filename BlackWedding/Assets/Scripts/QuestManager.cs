@@ -12,5 +12,5 @@ public class QuestManager : MonoBehaviour
         Instance = this;
     }
 
-  
+   
 }

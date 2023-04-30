@@ -8,16 +8,23 @@ using TMPro;
 public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
 	public bool[] wasStoryTold;
+	public int storyIndex = 0;
+	public NPCInteraction NPC;
+
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
+		NPC = GetComponentInParent<NPCInteraction>();
+		NPC.quest.OnCompeletedQuest += LoadNewStory;
+		NPC.OnOpenedUIPanel += StartStory;
 	}
 
 	// Creates a new Story object with the compiled story which we can then play!
 	void StartStory () 
 	{
-		story = new Story (currentInkJSONAsset.text);
+		Canvas.ForceUpdateCanvases();
+		story = new Story (inkJSONAssets[storyIndex].text);
         if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
@@ -50,11 +57,16 @@ public class BasicInkExample : MonoBehaviour {
 			}
 		}
 		// If we've read all the content and there's no choices, the story is finished!
-		else {
-			Button choice = CreateChoiceView("End of story.\nRestart?");
-			choice.onClick.AddListener(delegate{
-				StartStory();
-			});
+		//else {
+		//	Button choice = CreateChoiceView("End of story.\nRestart?");
+		//	choice.onClick.AddListener(delegate{
+		//		StartStory();
+		//	});
+		//}
+		else
+		{
+			NPC.Perform();
+			NPC.CloseUIPanel();
 		}
 		Canvas.ForceUpdateCanvases();
 	}
@@ -106,8 +118,21 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
+	void LoadNewStory()
+    {
+		
+		if(inkJSONAssets.Length > 0 && storyIndex <= inkJSONAssets.Length)
+		{
+			Debug.Log("was loaded new Story");
+			storyIndex++;
+			Canvas.ForceUpdateCanvases();
+			StartStory();
+		}
+    }
+
 	[SerializeField]
 	private TextAsset currentInkJSONAsset = null;
+	[SerializeField]
 	private TextAsset[] inkJSONAssets;
 	public Story story;
 

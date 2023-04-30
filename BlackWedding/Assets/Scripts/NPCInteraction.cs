@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class NPCInteraction : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class NPCInteraction : MonoBehaviour
     public Vector3 defaultAngle;
     bool isPlayerNearby = false;
     NPCState currentNPCState;
+    bool wasTaskPerformed = false;
+    public Action OnOpenedUIPanel;
     private void Start()
     {
         NPCState currentNPCState = NPCState.interactable;
@@ -82,6 +85,7 @@ public class NPCInteraction : MonoBehaviour
             interactionSymb.gameObject.SetActive(false);
             Time.timeScale = 0;
             PlayerController.IsPaused = true;
+            OnOpenedUIPanel?.Invoke();
         }
         else
         {
@@ -111,5 +115,16 @@ public class NPCInteraction : MonoBehaviour
 
     }
 
+    public void Perform()
+    {
+        if (!wasTaskPerformed)
+        {
+            if (uiPanel.gameObject.activeSelf)
+            {
 
+                quest.PerformTask();
+                wasTaskPerformed = true;
+            }
+        }
+    }
 }

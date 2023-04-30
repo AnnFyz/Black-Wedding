@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FirstQuest
   m_EditorClassIdentifier: 
   currentTypeOfQuest: 0
-  isQuestCompleted: 1
-  amountOfAllTasks: 3
-  startAmountOfAllTasks: 3
+  isQuestCompleted: 0
+  amountOfAllTasks: 1
+  startAmountOfAllTasks: 1
   currentAmountOfPerformedTasks: 0

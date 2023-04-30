@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public enum TypeOfQuest
 {
@@ -19,6 +20,7 @@ public class QuestSO : ScriptableObject
     public int amountOfAllTasks = 3;
     public int startAmountOfAllTasks = 3;
     public int currentAmountOfPerformedTasks = 0;
+    public Action OnCompeletedQuest;
 
     private void OnEnable()
     {
@@ -33,6 +35,7 @@ public class QuestSO : ScriptableObject
         if (currentAmountOfPerformedTasks == amountOfAllTasks)
         {
             isQuestCompleted = true;
+            OnCompeletedQuest?.Invoke();
             Debug.Log("quest is completed!");
         }
     }
