@@ -15,11 +15,11 @@ MonoBehaviour:
   currentTypeOfQuest: 2
   isQuestCompleted: 0
   amountOfAllWithObjInteractions: 1
-  amountOfAllWithNPCInteractions: 1
-  amountOfAllWithQuestObjInteractions: 3
+  amountOfAllWithNPCInteractions: 2
+  amountOfAllWithQuestObjInteractions: 5
   startAmountOfAllObjTasks: 1
-  startAmountOfAllNPCTasks: 1
-  startAmountOfQuestObjNPCTasks: 3
+  startAmountOfAllNPCTasks: 2
+  startAmountOfQuestObjNPCTasks: 5
   currentAmountOfPerformedObjTasks: 0
   currentAmountOfPerformedNPCTasks: 0
   currentAmountOfPerformedQuestObjTasks: 0

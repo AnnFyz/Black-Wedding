@@ -7179,6 +7179,9 @@ MonoBehaviour:
   interactionSymb: {fileID: 1290623342}
   uiPanel: {fileID: 1182833441}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
+  isPlayerNearby: 0
+  player: {fileID: 0}
+  isQuestObj: 0
 --- !u!135 &932651140
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7508,6 +7511,9 @@ MonoBehaviour:
   interactionSymb: {fileID: 465019116}
   uiPanel: {fileID: 178777295}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
+  isPlayerNearby: 0
+  player: {fileID: 0}
+  isQuestObj: 0
 --- !u!135 &1204205497
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7676,16 +7682,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3678402849862382311, guid: 41c515897f4003544b654f14956fa7d6,
-        type: 3}
-      propertyPath: inkJSONAssets.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3678402849862382311, guid: 41c515897f4003544b654f14956fa7d6,
-        type: 3}
-      propertyPath: inkJSONAssets.Array.data[0]
-      value: 
-      objectReference: {fileID: 4900000, guid: f5832a82de7777943ae281fa526bd32a, type: 3}
     - target: {fileID: 3678402851121797928, guid: 41c515897f4003544b654f14956fa7d6,
         type: 3}
       propertyPath: m_RootOrder
@@ -8360,9 +8356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469caf92ab7c019408e071609fb406e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest:
-  - {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
-  currentAmountOfInteraction: 0
+  currentQuest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
 --- !u!4 &1692557484
 Transform:
   m_ObjectHideFlags: 0
@@ -8657,6 +8651,9 @@ MonoBehaviour:
   interactionSymb: {fileID: 1861673081}
   uiPanel: {fileID: 761854}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
+  isPlayerNearby: 0
+  player: {fileID: 0}
+  isQuestObj: 0
 --- !u!1001 &5525437850362112386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8811,7 +8808,7 @@ PrefabInstance:
     - target: {fileID: 5590756487625596802, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888.3834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5590756487625596802, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
@@ -8901,23 +8898,13 @@ PrefabInstance:
     - target: {fileID: 5590756489088572381, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888.3834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5590756489088572381, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5590756489184597647, guid: 2258c88e29efba449aa167558ccd985c,
-        type: 3}
-      propertyPath: inkJSONAssets.Array.data[0]
-      value: 
-      objectReference: {fileID: 4900000, guid: 3b2eeb5e257a7e1469a07235bd31b472, type: 3}
-    - target: {fileID: 5590756489184597647, guid: 2258c88e29efba449aa167558ccd985c,
-        type: 3}
-      propertyPath: inkJSONAssets.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: 31fde45c082374b4fb3798defb4cedc4, type: 3}
     - target: {fileID: 5590756489339395545, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8936,7 +8923,7 @@ PrefabInstance:
     - target: {fileID: 5590756489339395545, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888.3834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5590756489339395545, guid: 2258c88e29efba449aa167558ccd985c,
         type: 3}
