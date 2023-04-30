@@ -7,7 +7,7 @@ using TMPro;
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
-	public bool[] wasStoryTold;
+	//public bool[] wasStoryTold;
 	public int storyIndex = 0;
 	public NPCInteraction NPC;
 
@@ -24,7 +24,10 @@ public class BasicInkExample : MonoBehaviour {
 	void StartStory () 
 	{
 		Canvas.ForceUpdateCanvases();
-		story = new Story (inkJSONAssets[storyIndex].text);
+		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
+        {
+			story = new Story(inkJSONAssets[storyIndex].text);
+		}
         if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
@@ -68,6 +71,16 @@ public class BasicInkExample : MonoBehaviour {
 			NPC.Perform();
 			NPC.CloseUIPanel();
 		}
+
+		if (story.currentTags.Contains("LoadNewScene"))
+		{
+			Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+			choice.onClick.AddListener(delegate
+			{
+				GameManager.Instance.LoadNextScene();
+			});
+		}
+
 		Canvas.ForceUpdateCanvases();
 	}
 
@@ -121,7 +134,7 @@ public class BasicInkExample : MonoBehaviour {
 	void LoadNewStory()
     {
 		
-		if(inkJSONAssets.Length > 0 && storyIndex <= inkJSONAssets.Length)
+		if(inkJSONAssets.Length > 1 && storyIndex < inkJSONAssets.Length)
 		{
 			Debug.Log("was loaded new Story");
 			storyIndex++;
@@ -130,8 +143,8 @@ public class BasicInkExample : MonoBehaviour {
 		}
     }
 
-	[SerializeField]
-	private TextAsset currentInkJSONAsset = null;
+	//[SerializeField]
+	//private TextAsset currentInkJSONAsset = null;
 	[SerializeField]
 	private TextAsset[] inkJSONAssets;
 	public Story story;

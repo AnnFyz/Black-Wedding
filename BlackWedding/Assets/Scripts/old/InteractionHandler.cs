@@ -59,7 +59,7 @@ public class InteractionHandler : MonoBehaviour
         {
             if (currentTypeOfInteraction == TypeOfInteraction.interObj)
             {
-                quest.PerformTask();
+                quest.PerformObjTask();
             }
         }
     }

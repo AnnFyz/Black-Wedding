@@ -79,7 +79,7 @@ public class ObjectInteraction : MonoBehaviour
         if (uiPanel.gameObject.activeSelf)
         {
     
-          quest.PerformTask();
+          quest.PerformObjTask();
         }
     }
 }

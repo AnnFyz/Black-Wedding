@@ -17,22 +17,39 @@ public class QuestSO : ScriptableObject
 {
     [SerializeField] TypeOfQuest currentTypeOfQuest;
     public bool isQuestCompleted = false;
-    public int amountOfAllTasks = 3;
-    public int startAmountOfAllTasks = 3;
-    public int currentAmountOfPerformedTasks = 0;
+    public int amountOfAllWithObjInteractions = 3;
+    public int amountOfAllWithNPCInteractions = 3;
+    public int startAmountOfAllObjTasks = 3;
+    public int startAmountOfAllNPCTasks = 3;
+    public int currentAmountOfPerformedObjTasks = 0;
+    public int currentAmountOfPerformedNPCTasks = 0;
     public Action OnCompeletedQuest;
 
     private void OnEnable()
     {
         isQuestCompleted = false;
-        amountOfAllTasks = startAmountOfAllTasks;
-        currentAmountOfPerformedTasks = 0;
+        amountOfAllWithObjInteractions = startAmountOfAllObjTasks;
+        amountOfAllWithNPCInteractions = startAmountOfAllNPCTasks;
+        currentAmountOfPerformedObjTasks = 0;
+        currentAmountOfPerformedNPCTasks = 0;
     }
-    public void PerformTask()
+    public void PerformObjTask()
     {
-        currentAmountOfPerformedTasks++;
-        Debug.Log("task is performed!");
-        if (currentAmountOfPerformedTasks == amountOfAllTasks)
+        currentAmountOfPerformedObjTasks++;
+        Debug.Log("interaction with obj is performed!");
+        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions)
+        {
+            isQuestCompleted = true;
+            OnCompeletedQuest?.Invoke();
+            Debug.Log("quest is completed!");
+        }
+    }
+
+    public void PerformNPCTask()
+    {
+        currentAmountOfPerformedNPCTasks++;
+        Debug.Log("interaction with NPC is performed!");
+        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions)
         {
             isQuestCompleted = true;
             OnCompeletedQuest?.Invoke();
