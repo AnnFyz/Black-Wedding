@@ -12,7 +12,7 @@ public class Flower : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby)
+        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && objectInteraction.isInteractable)
         {
             PickFlower();
         }

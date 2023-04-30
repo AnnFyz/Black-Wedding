@@ -101,6 +101,6 @@ public class Candle : MonoBehaviour
 
     void Perform()
     {
-        quest.PerformObjTask();
+        quest.PerformQuestObjTask();
     }
 }

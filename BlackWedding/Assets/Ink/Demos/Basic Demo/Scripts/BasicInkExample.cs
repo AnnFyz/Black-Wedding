@@ -7,11 +7,15 @@ using TMPro;
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
-	//public bool[] wasStoryTold;
+	[SerializeField]
 	public int storyIndex = 0;
+	[SerializeField]
 	public NPCInteraction NPC;
+	[SerializeField] bool IsThisNPSGivesQuest = false;
+	[SerializeField]
+	public int storyIndexToActivateQuestObj = 0;
 
-    void Awake () {
+	void Awake () {
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
@@ -68,6 +72,7 @@ public class BasicInkExample : MonoBehaviour {
 		//}
 		else
 		{
+			ActivateQuestObj();
 			NPC.Perform();
 			NPC.CloseUIPanel();
 		}
@@ -142,6 +147,18 @@ public class BasicInkExample : MonoBehaviour {
 			StartStory();
 		}
     }
+
+	void ActivateQuestObj()
+    {
+        if (IsThisNPSGivesQuest)
+        {
+			if(storyIndex == storyIndexToActivateQuestObj)
+            {
+				QuestManager.Instance.currentQuest.MakeObjInteractable();
+            }
+        }
+	
+	}
 
 	//[SerializeField]
 	//private TextAsset currentInkJSONAsset = null;

@@ -11,18 +11,24 @@ public class ObjectInteraction : MonoBehaviour
     bool wasTaskPerformed = false;
     public PlayerController player;
     public bool isQuestObj = false;
+    public bool isInteractable = false;
 
     private void Start()
     {
         quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
+        quest.OnGivenQuest += MakeQuestObjInteractable;
+        if (!isQuestObj)
+        {
+            isInteractable = true;
+        }
     }
 
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable)
         {
 
             ShowUIPanel();
@@ -41,7 +47,7 @@ public class ObjectInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && isInteractable)
         {
             interactionSymb.gameObject.SetActive(true);
             isPlayerNearby = true;
@@ -90,5 +96,10 @@ public class ObjectInteraction : MonoBehaviour
                 quest.PerformObjTask();
             }
         }
+    }
+
+    void MakeQuestObjInteractable()
+    {
+        isInteractable = true;
     }
 }

@@ -27,6 +27,7 @@ public class QuestSO : ScriptableObject
     public int currentAmountOfPerformedNPCTasks = 0;
     public int currentAmountOfPerformedQuestObjTasks = 0;
     public Action OnCompeletedQuest;
+    public Action OnGivenQuest;
 
     private void OnEnable()
     {
@@ -72,5 +73,10 @@ public class QuestSO : ScriptableObject
             OnCompeletedQuest?.Invoke();
             Debug.Log("quest is completed!");
         }
+    }
+
+    public void MakeObjInteractable()
+    {
+        OnGivenQuest?.Invoke();
     }
 }
