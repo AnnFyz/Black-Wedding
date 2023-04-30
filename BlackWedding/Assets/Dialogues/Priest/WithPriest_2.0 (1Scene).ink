@@ -5,5 +5,5 @@ Second dialogue with priest in 1 scene
 
 - They lived happily ever after. #LoadNewScene
 
-* [Stay here] #LoadNewScene
+* [Stay here] 
     -> END
