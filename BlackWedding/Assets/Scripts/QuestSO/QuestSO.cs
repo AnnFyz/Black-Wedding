@@ -28,6 +28,7 @@ public class QuestSO : ScriptableObject
     public int currentAmountOfPerformedQuestObjTasks = 0;
     public Action OnCompeletedQuest;
     public Action OnGivenQuest;
+    public Action OnSecondGivenQuest;
 
     private void OnEnable()
     {
@@ -84,5 +85,10 @@ public class QuestSO : ScriptableObject
     public void MakeObjInteractable()
     {
         OnGivenQuest?.Invoke();
+    }
+
+    public void MakeSecondObjInteractable()
+    {
+        OnSecondGivenQuest?.Invoke();
     }
 }

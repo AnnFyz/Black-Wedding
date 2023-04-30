@@ -11,6 +11,7 @@ public class ObjectInteraction : MonoBehaviour
     public bool wasTaskPerformed = false;
     public PlayerController player;
     public bool isQuestObj = false;
+    public bool isSecondQuestObj = false;
     public bool isInteractable = false;
 
     private void Start()
@@ -20,7 +21,8 @@ public class ObjectInteraction : MonoBehaviour
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
         quest.OnGivenQuest += MakeQuestObjInteractable;
-        if (!isQuestObj)
+        quest.OnSecondGivenQuest += MakeSecondQuestObjInteractable;
+        if (!isQuestObj && !isSecondQuestObj)
         {
             isInteractable = true;
         }
@@ -29,7 +31,7 @@ public class ObjectInteraction : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable && !isQuestObj)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable && !isQuestObj && !isSecondQuestObj)
         {
 
             ShowUIPanel();
@@ -89,7 +91,7 @@ public class ObjectInteraction : MonoBehaviour
 
     void Perform()
     {
-        if (!isQuestObj)
+        if (!isQuestObj && !isSecondQuestObj)
         {
             if (uiPanel.gameObject.activeSelf)
             {
@@ -101,11 +103,21 @@ public class ObjectInteraction : MonoBehaviour
 
     void MakeQuestObjInteractable()
     {
+        if (!isSecondQuestObj)
+        {
+            isInteractable = true;
+        }
+    }
+
+    void MakeSecondQuestObjInteractable()
+    {
+        Debug.Log("MakeSecondQuestObjInteractable");
         isInteractable = true;
     }
 
     void UpdateRefToQuest ()
     {
         quest = QuestManager.Instance.currentQuest;
+        quest.OnSecondGivenQuest += MakeSecondQuestObjInteractable;
     }
 }

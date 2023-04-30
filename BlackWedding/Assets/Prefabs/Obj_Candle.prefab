@@ -4812,7 +4812,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &169868675618059504
+--- !u!1 &3019149287499413667
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4820,38 +4820,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7842039206659195724}
-  - component: {fileID: 5975180083189562809}
-  - component: {fileID: 9202035123197992809}
+  - component: {fileID: 3019149287499413679}
+  - component: {fileID: 3019149287499413678}
+  - component: {fileID: 3019149287499413677}
   m_Layer: 0
-  m_Name: Candle_Mesh
+  m_Name: Candle:Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7842039206659195724
+--- !u!4 &3019149287499413679
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169868675618059504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
-  m_ConstrainProportionsScale: 1
+  m_GameObject: {fileID: 3019149287499413667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00000013451, z: 0}
+  m_LocalScale: {x: 0.4150746, y: 0.5827232, z: 0.4150746}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6919956527154912504}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &5975180083189562809
+--- !u!33 &3019149287499413678
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019149287499413667}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3019149287499413677
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169868675618059504}
+  m_GameObject: {fileID: 3019149287499413667}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -4887,14 +4895,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &9202035123197992809
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169868675618059504}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1473317321152689518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4915,7 +4915,7 @@ PrefabInstance:
     - target: {fileID: 8393259999417793015, guid: ebc7153b20a64a648ab8348dd31bbc0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.3
+      value: 7.99
       objectReference: {fileID: 0}
     - target: {fileID: 8393259999417793015, guid: ebc7153b20a64a648ab8348dd31bbc0d,
         type: 3}
@@ -5023,6 +5023,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1567c2c870324a64aa2b9cc44facf9aa,
         type: 2}
+    - target: {fileID: 8393260001326180761, guid: ebc7153b20a64a648ab8348dd31bbc0d,
+        type: 3}
+      propertyPath: isQuestObj
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8393260001326180762, guid: ebc7153b20a64a648ab8348dd31bbc0d,
         type: 3}
       propertyPath: m_Enabled
@@ -5083,7 +5088,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6919956527154912505}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4
   m_Height: 1.88
@@ -5106,7 +5111,8 @@ MonoBehaviour:
   maxTimeToRandomExtinguish: 15
   minTimeToRandomExtinguish: 5
   isCoroutineExecuting: 0
-  renderer: {fileID: 5975180083189562809}
+  renderer: {fileID: 3019149287499413677}
   extinguishedMat: {fileID: 2100000, guid: 640a1ef7cb921964a817e9b717c9568c, type: 2}
   litMat: {fileID: 2100000, guid: b0ef9a5d6b8e880429c13df405bf7024, type: 2}
   wasTaskPerformed: 0
+  wasCandleQuestPerformed: 0

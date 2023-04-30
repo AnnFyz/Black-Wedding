@@ -57,7 +57,10 @@ public class Candle : MonoBehaviour
 
     void RandomExtinguish()
     {
-        StartCoroutine(RandomExtinguish(timeToRandomExtinguish));
+        if (!wasCandleQuestPerformed)
+        {
+            StartCoroutine(RandomExtinguish(timeToRandomExtinguish));
+        }
     }
 
     IEnumerator RandomExtinguish(float time)
@@ -96,7 +99,7 @@ public class Candle : MonoBehaviour
 
     void ReversePerformed()
     {
-        if (wasTaskPerformed)
+        if (wasTaskPerformed && !wasCandleQuestPerformed)
         {
             objectInteraction.quest.ReversePerformedQuestObjTask();
             wasTaskPerformed = false;
@@ -111,6 +114,7 @@ public class Candle : MonoBehaviour
 
     void CancelExtinguishAfterCompletingQuest()
     {
+        StopAllCoroutines();
         wasCandleQuestPerformed = true;
     }
 }

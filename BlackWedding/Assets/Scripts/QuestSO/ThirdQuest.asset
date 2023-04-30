@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTypeOfQuest: 3
   isQuestCompleted: 1
-  amountOfAllWithObjInteractions: 1
+  amountOfAllWithObjInteractions: 0
   amountOfAllWithNPCInteractions: 0
   amountOfAllWithQuestObjInteractions: 1
-  startAmountOfAllObjTasks: 1
+  startAmountOfAllObjTasks: 0
   startAmountOfAllNPCTasks: 0
   startAmountOfQuestObjNPCTasks: 1
-  currentAmountOfPerformedObjTasks: 1
-  currentAmountOfPerformedNPCTasks: 1
-  currentAmountOfPerformedQuestObjTasks: 1
+  currentAmountOfPerformedObjTasks: 0
+  currentAmountOfPerformedNPCTasks: 0
+  currentAmountOfPerformedQuestObjTasks: 0

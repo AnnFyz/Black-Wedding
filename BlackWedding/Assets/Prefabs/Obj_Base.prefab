@@ -644,3 +644,8 @@ MonoBehaviour:
   uiPanel: {fileID: 8393260000342700782}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   isPlayerNearby: 0
+  wasTaskPerformed: 0
+  player: {fileID: 0}
+  isQuestObj: 0
+  isSecondQuestObj: 0
+  isInteractable: 0

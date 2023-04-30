@@ -14,6 +14,7 @@ public class BasicInkExample : MonoBehaviour {
 	[SerializeField] bool IsThisNPSGivesQuest = false;
 	[SerializeField]
 	public int storyIndexToActivateQuestObj = 0;
+	public int storyIndexToActivateSecondQuestObj = 0;
 
 	void Awake () {
 		// Remove the default message
@@ -152,12 +153,17 @@ public class BasicInkExample : MonoBehaviour {
     {
         if (IsThisNPSGivesQuest)
         {
-			if(storyIndex == storyIndexToActivateQuestObj)
+			if(storyIndex == storyIndexToActivateQuestObj && NPC.quest == QuestManager.Instance.quests[0])
             {
 				QuestManager.Instance.currentQuest.MakeObjInteractable();
             }
-        }
-	
+
+			if (storyIndex == storyIndexToActivateSecondQuestObj && NPC.quest == QuestManager.Instance.quests[QuestManager.Instance.quests.Length - 1])
+			{
+				Debug.Log("MakeSecondObjInteractable");
+				QuestManager.Instance.currentQuest.MakeSecondObjInteractable();
+			}
+		}
 	}
 
 	//[SerializeField]
