@@ -23,12 +23,12 @@ public class NPCInteraction : MonoBehaviour
     public QuestSO quest;
     public Vector3 defaultAngle;
     bool isPlayerNearby = false;
-    //NPCState currentNPCState;
     bool wasTaskPerformed = false;
     public Action OnOpenedUIPanel;
+
     private void Start()
     {
-        //currentNPCState = NPCState.interactable;
+        quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
         defaultAngle = transform.rotation.eulerAngles;

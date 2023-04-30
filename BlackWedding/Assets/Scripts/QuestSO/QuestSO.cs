@@ -19,10 +19,13 @@ public class QuestSO : ScriptableObject
     public bool isQuestCompleted = false;
     public int amountOfAllWithObjInteractions = 3;
     public int amountOfAllWithNPCInteractions = 3;
+    public int amountOfAllWithQuestObjInteractions = 3;
     public int startAmountOfAllObjTasks = 3;
     public int startAmountOfAllNPCTasks = 3;
+    public int startAmountOfQuestObjNPCTasks = 3;
     public int currentAmountOfPerformedObjTasks = 0;
     public int currentAmountOfPerformedNPCTasks = 0;
+    public int currentAmountOfPerformedQuestObjTasks = 0;
     public Action OnCompeletedQuest;
 
     private void OnEnable()
@@ -30,14 +33,16 @@ public class QuestSO : ScriptableObject
         isQuestCompleted = false;
         amountOfAllWithObjInteractions = startAmountOfAllObjTasks;
         amountOfAllWithNPCInteractions = startAmountOfAllNPCTasks;
+        amountOfAllWithQuestObjInteractions = startAmountOfQuestObjNPCTasks;
         currentAmountOfPerformedObjTasks = 0;
         currentAmountOfPerformedNPCTasks = 0;
+        currentAmountOfPerformedQuestObjTasks = 0;
     }
     public void PerformObjTask()
     {
         currentAmountOfPerformedObjTasks++;
         Debug.Log("interaction with obj is performed!");
-        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions)
+        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks == amountOfAllWithQuestObjInteractions)
         {
             isQuestCompleted = true;
             OnCompeletedQuest?.Invoke();
@@ -49,7 +54,19 @@ public class QuestSO : ScriptableObject
     {
         currentAmountOfPerformedNPCTasks++;
         Debug.Log("interaction with NPC is performed!");
-        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions)
+        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks == amountOfAllWithQuestObjInteractions)
+        {
+            isQuestCompleted = true;
+            OnCompeletedQuest?.Invoke();
+            Debug.Log("quest is completed!");
+        }
+    }
+
+    public void PerformQuestObjTask()
+    {
+        currentAmountOfPerformedQuestObjTasks++;
+        Debug.Log("interaction with questObj is performed!");
+        if (currentAmountOfPerformedObjTasks == amountOfAllWithObjInteractions && currentAmountOfPerformedNPCTasks == amountOfAllWithNPCInteractions && currentAmountOfPerformedQuestObjTasks == amountOfAllWithQuestObjInteractions)
         {
             isQuestCompleted = true;
             OnCompeletedQuest?.Invoke();

@@ -6,7 +6,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance { get; private set; }
     public QuestSO[] quest;
-    public int currentAmountOfInteraction = 0;
+    public QuestSO currentQuest;
     private void Awake()
     {
         Instance = this;

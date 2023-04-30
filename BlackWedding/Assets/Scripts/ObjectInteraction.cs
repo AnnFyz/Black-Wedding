@@ -5,12 +5,16 @@ using UnityEngine;
 public class ObjectInteraction : MonoBehaviour
 {
     [SerializeField] Transform interactionSymb;
-    [SerializeField] Transform uiPanel;
+    public Transform uiPanel;
     public QuestSO quest;
-    bool isPlayerNearby = false;
+    public bool isPlayerNearby = false;
     bool wasTaskPerformed = false;
+    public PlayerController player;
+    public bool isQuestObj = false;
+
     private void Start()
     {
+        quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
     }
@@ -41,6 +45,7 @@ public class ObjectInteraction : MonoBehaviour
         {
             interactionSymb.gameObject.SetActive(true);
             isPlayerNearby = true;
+            player = other.gameObject.GetComponent<PlayerController>();
         }
     }
 
@@ -51,6 +56,7 @@ public class ObjectInteraction : MonoBehaviour
             interactionSymb.gameObject.SetActive(false);
             uiPanel.gameObject.SetActive(false);
             isPlayerNearby = false;
+            player = null;
         }
     }
     void ShowUIPanel()
@@ -76,10 +82,13 @@ public class ObjectInteraction : MonoBehaviour
 
     void Perform()
     {
-        if (uiPanel.gameObject.activeSelf)
+        if (!isQuestObj)
         {
-    
-          quest.PerformObjTask();
+            if (uiPanel.gameObject.activeSelf)
+            {
+
+                quest.PerformObjTask();
+            }
         }
     }
 }
