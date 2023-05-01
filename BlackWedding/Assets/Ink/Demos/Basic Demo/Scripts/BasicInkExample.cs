@@ -33,21 +33,21 @@ public class BasicInkExample : MonoBehaviour {
     {
 		Debug.Log("Load new Story");
     }
-    private void Start()
-    {
-        if(NPC.titleOfNPC == NPCTitle.priest)
-        {
-			if (EndingManager.Instance != null)
-			{
-				NPC.OnOpenedUIPanel -= StartStory;
-				Debug.Log("Unsubscribe start story");
-				NPC.OnOpenedUIPanel += StartSelectedEndingStory;
-				EndingManager.Instance.OnChangedEnding += SelectEndingStory;
-			}
-		}
-    }
+  //  private void Start()
+  //  {
+  //      if(NPC.titleOfNPC == NPCTitle.priest)
+  //      {
+		//	if (EndingManager.Instance != null)
+		//	{
+		//		NPC.OnOpenedUIPanel -= StartStory;
+		//		Debug.Log("Unsubscribe start story");
+		//		NPC.OnOpenedUIPanel += StartSelectedEndingStory;
+		//		EndingManager.Instance.OnChangedEnding += SelectEndingStory;
+		//	}
+		//}
+  //  }
     // Creates a new Story object with the compiled story which we can then play!
-    void StartStory () 
+    public void StartStory () 
 	{
 		Canvas.ForceUpdateCanvases();
 		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
@@ -192,7 +192,7 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
-	void SelectEndingStory()
+	public void SelectEndingStory()
     {
 		if(EndingManager.Instance.currentEnding == Endings.bad)
         {
@@ -209,7 +209,7 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
-	void StartEndingStory(int endingStoryIndex)
+	 void StartEndingStory(int endingStoryIndex)
 	{
 		Canvas.ForceUpdateCanvases();
 		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
@@ -219,7 +219,7 @@ public class BasicInkExample : MonoBehaviour {
 		if (OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
-	void StartSelectedEndingStory()
+	public void StartSelectedEndingStory()
     {		
 			StartEndingStory(endingStoryIndex);
 	}

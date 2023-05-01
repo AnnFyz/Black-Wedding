@@ -1,4 +1,4 @@
-Second Dialogue with Mother in 2 scene (bad ending)
+First Dialogue with Mother in 2 scene (bad ending)
 
  * There were two choices.
  * There were four lines of content.

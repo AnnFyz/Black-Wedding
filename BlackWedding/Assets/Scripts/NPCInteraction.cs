@@ -30,6 +30,11 @@ public class NPCInteraction : MonoBehaviour
     private void Start()
     {
         QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStoryWhileNPCCanvasInactive;
+        if (titleOfNPC == NPCTitle.priest)
+        {
+            UnsubscribeStartStory();
+            OnOpenedUIPanel += LoadPriestEndingStory;
+        }
         // the same updating for ending story
         QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
@@ -113,10 +118,6 @@ public class NPCInteraction : MonoBehaviour
         gameObject.transform.GetChild(0).transform.LookAt(player);
     }
 
-    void RotateToDeafaultAngle()
-    {
-
-    }
 
     public void Perform()
     {
@@ -142,5 +143,28 @@ public class NPCInteraction : MonoBehaviour
             ink.LoadNewStory();
             ink.LoadSt();
            
+    }
+
+    void LoadPriestEndingStory()
+    {
+
+        if (titleOfNPC == NPCTitle.priest)
+        {
+            if (EndingManager.Instance != null)
+            {
+                OnOpenedUIPanel += ink.StartSelectedEndingStory;
+                EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
+                Debug.Log("Load priest ending story");
+            }
+        }
+    }
+
+    void UnsubscribeStartStory()
+    {
+        if (titleOfNPC == NPCTitle.priest)
+        {
+            OnOpenedUIPanel -= ink.StartStory;
+            Debug.Log("Unsubscribe start story");
+        }
     }
 }
