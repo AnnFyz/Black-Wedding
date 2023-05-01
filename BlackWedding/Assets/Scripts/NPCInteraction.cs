@@ -161,10 +161,13 @@ public class NPCInteraction : MonoBehaviour
 
     void UnsubscribeStartStory()
     {
-        if (titleOfNPC == NPCTitle.priest)
+        if (EndingManager.Instance != null)
         {
-            OnOpenedUIPanel -= ink.StartStory;
-            Debug.Log("Unsubscribe start story");
+            if (titleOfNPC == NPCTitle.priest)
+            {
+                OnOpenedUIPanel -= ink.StartStory;
+                Debug.Log("Unsubscribe start story");
+            }
         }
     }
 }

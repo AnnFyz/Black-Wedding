@@ -23,7 +23,7 @@ Do not weep for Avram, for he has ascended to a higher plane of existence. He is
 **** [Continue]
 Your sacrifice will not go unnoticed, you will be forever honored and revered by our commune. And Avram's soul will wait for you in Heaven, forever bound to you.
 
-***** [1.Father, what of my soul? What if I am unable to bear this burden? This was not how it was supposed to be.] 
+***** [1. Father, what of my soul? What if I am unable to bear this burden? This was not how it was supposed to be.] 
 
     ------- You must understand that this is not just about Avram or yourself, but about the spiritual wellbeing of our entire commune.
    ****** [Continue]
@@ -34,7 +34,7 @@ Your sacrifice will not go unnoticed, you will be forever honored and revered by
    ------ Do not doubt the will of God. He has a plan for you. A plan for all of us, and it is our duty to follow it, no matter the cost.If you would...refuse to save Avram's soul, you would not only turn your back to him, to this community. You would be turning your back on God himself.
    ****** [Continue]
     ------ And those who reject the will of God, who turn away from the path of righteousness, they are not welcome in our commune. They may only be are exiled, left to fend for themselves in the Great Beyond. I'm sure you understand what that means.
-    ****** [1.I understand, Father. I would still like to be privy to the details of this ritual.]  -> Ritual_Description
+    ****** [1. I understand, Father. I would still like to be privy to the details of this ritual.]  -> Ritual_Description
 
     -------
    
@@ -56,8 +56,8 @@ Your sacrifice will not go unnoticed, you will be forever honored and revered by
 
 ==Candle_Banner==
 
-* [1.I want to know more about the Celestial Candle.] -> Candle
-* [2.What kind of banner will we be carrying to his grave?] -> Banner
+* [1. I want to know more about the Celestial Candle.] -> Candle
+* [2. What kind of banner will we be carrying to his grave?] -> Banner
 * {(Candle || Banner)} -> Ending 
 
 ==Candle==

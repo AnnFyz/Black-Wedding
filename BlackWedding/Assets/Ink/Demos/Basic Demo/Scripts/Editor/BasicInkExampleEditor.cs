@@ -25,4 +25,6 @@ public class BasicInkExampleEditor : Editor {
 		var story = realTarget.story;
 		InkPlayerWindow.DrawStoryPropertyField(story, ref storyExpanded, new GUIContent("Story"));
 	}
+
+
 }
