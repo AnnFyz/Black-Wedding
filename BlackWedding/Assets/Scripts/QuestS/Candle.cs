@@ -114,7 +114,6 @@ public class Candle : MonoBehaviour
 
     void CancelExtinguishAfterCompletingQuest()
     {
-        StopAllCoroutines();
-        wasCandleQuestPerformed = true;
+        StopAllCoroutines();        wasCandleQuestPerformed = true;
     }
 }

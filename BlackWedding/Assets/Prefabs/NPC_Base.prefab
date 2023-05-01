@@ -887,10 +887,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasStoryTold: 
   storyIndex: 0
   NPC: {fileID: 0}
-  currentInkJSONAsset: {fileID: 4900000, guid: 5ebdf7adffc47d340b44461ff5df9164, type: 3}
+  IsThisNPSGivesQuest: 0
+  storyIndexToActivateQuestObj: 0
+  storyIndexToActivateSecondQuestObj: 0
+  inkJSONAssetsEndings: []
+  endingStoryIndex: 0
   inkJSONAssets: []
   canvas: {fileID: 4942173053989013978}
   TextPrefab: {fileID: 4351313996207320000, guid: e89f0cbd29d68ad40bc3913979d8bb5e,
@@ -1182,6 +1185,8 @@ MonoBehaviour:
   uiPanel: {fileID: 4942173053878791390}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
+  titleOfNPC: 0
+  ink: {fileID: 4942173053989013975}
 --- !u!1 &4942173054846859187
 GameObject:
   m_ObjectHideFlags: 0

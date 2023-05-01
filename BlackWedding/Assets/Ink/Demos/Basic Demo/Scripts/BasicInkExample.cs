@@ -14,19 +14,40 @@ public class BasicInkExample : MonoBehaviour {
 	[SerializeField] bool IsThisNPSGivesQuest = false;
 	[SerializeField]
 	public int storyIndexToActivateQuestObj = 0;
+	[SerializeField]
 	public int storyIndexToActivateSecondQuestObj = 0;
-
+	[SerializeField] TextAsset[] inkJSONAssetsEndings;
+	[SerializeField] int endingStoryIndex = 0;
 	void Awake () {
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
 		NPC = GetComponentInParent<NPCInteraction>();
-		NPC.quest.OnCompeletedQuest += LoadNewStory;
+		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStory;
+		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadSt;
 		NPC.OnOpenedUIPanel += StartStory;
+		NPC.OnOpenedUIPanel += LoadSt;
 	}
 
-	// Creates a new Story object with the compiled story which we can then play!
-	void StartStory () 
+	public void LoadSt()
+    {
+		Debug.Log("Load new Story");
+    }
+    private void Start()
+    {
+        if(NPC.titleOfNPC == NPCTitle.priest)
+        {
+			if (EndingManager.Instance != null)
+			{
+				NPC.OnOpenedUIPanel -= StartStory;
+				Debug.Log("Unsubscribe start story");
+				NPC.OnOpenedUIPanel += StartSelectedEndingStory;
+				EndingManager.Instance.OnChangedEnding += SelectEndingStory;
+			}
+		}
+    }
+    // Creates a new Story object with the compiled story which we can then play!
+    void StartStory () 
 	{
 		Canvas.ForceUpdateCanvases();
 		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
@@ -73,6 +94,12 @@ public class BasicInkExample : MonoBehaviour {
 		//}
 		else
 		{
+			if(EndingManager.Instance != null)
+            {
+				EndingManager.Instance.MarkCompletedConversation(NPC.titleOfNPC);
+				EndingManager.Instance.DetermineTheEnding();
+
+			}
 			ActivateQuestObj();
 			NPC.Perform();
 			NPC.CloseUIPanel();
@@ -137,10 +164,9 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
-	void LoadNewStory()
-    {
-		
-		if(inkJSONAssets.Length > 1 && storyIndex < inkJSONAssets.Length)
+	public void LoadNewStory()
+    {		
+		if(inkJSONAssets.Length > 1 && storyIndex < inkJSONAssets.Length -1)
 		{
 			Debug.Log("was loaded new Story");
 			storyIndex++;
@@ -166,6 +192,37 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
+	void SelectEndingStory()
+    {
+		if(EndingManager.Instance.currentEnding == Endings.bad)
+        {
+			endingStoryIndex = 0;
+
+		}
+		if (EndingManager.Instance.currentEnding == Endings.neutral)
+		{
+			endingStoryIndex = 1;
+		}
+		if (EndingManager.Instance.currentEnding == Endings.good)
+		{
+			endingStoryIndex = 2;
+		}
+	}
+
+	void StartEndingStory(int endingStoryIndex)
+	{
+		Canvas.ForceUpdateCanvases();
+		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
+		{
+			story = new Story(inkJSONAssetsEndings[endingStoryIndex].text);
+		}
+		if (OnCreateStory != null) OnCreateStory(story);
+		RefreshView();
+	}
+	void StartSelectedEndingStory()
+    {		
+			StartEndingStory(endingStoryIndex);
+	}
 	//[SerializeField]
 	//private TextAsset currentInkJSONAsset = null;
 	[SerializeField]

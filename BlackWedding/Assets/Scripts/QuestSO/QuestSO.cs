@@ -9,7 +9,8 @@ public enum TypeOfQuest
     LightCandles,
     GatherFlowers,
     LightHolyCandle,
-    ChangeFrescoes
+    ChangeFrescoes,
+    PaintersObj
 }
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Quests")]

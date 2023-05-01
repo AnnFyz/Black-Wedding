@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum NPCTitle
+{
+    priest,
+    mother,
+    painter
+}
 public class NPCInteraction : MonoBehaviour
 {
     public enum NPCState
     {
         interactable,
         notInteractable
-    }
-
-    public enum NPCTitle
-    {
-        priest,
-        mother,
-        painter
     }
 
     [SerializeField] Transform interactionSymb;
@@ -25,9 +24,13 @@ public class NPCInteraction : MonoBehaviour
     bool isPlayerNearby = false;
     bool wasTaskPerformed = false;
     public Action OnOpenedUIPanel;
+    public NPCTitle titleOfNPC;
+    public BasicInkExample ink;
 
     private void Start()
     {
+        QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStoryWhileNPCCanvasInactive;
+        // the same updating for ending story
         QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
@@ -40,9 +43,8 @@ public class NPCInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)
         {
-          
-            ShowUIPanel();
 
+            ShowUIPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -132,5 +134,13 @@ public class NPCInteraction : MonoBehaviour
     void UpdateRefToQuest()
     {
         quest = QuestManager.Instance.currentQuest;
+    }
+
+    void LoadNewStoryWhileNPCCanvasInactive()
+    {
+      
+            ink.LoadNewStory();
+            ink.LoadSt();
+           
     }
 }
