@@ -125,12 +125,11 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		if (story.currentTags.Count > 0)
+		if (story.currentTags.Count > 0 && story.currentTags.Contains("Italic"))
 		{
 			storyText = Instantiate(textPrefabItalic) as TMP_Text;
-			story.currentTags.Contains("Italic");
 		}
-        else
+        else 
         {
 			storyText = Instantiate(TextPrefab) as TMP_Text;
 		}

@@ -29,7 +29,7 @@ Your sacrifice will not go unnoticed, you will be forever honored and revered by
    ****** [Continue]
     ------ It is your destiny, your fate, your... obligation.
    ****** [Continue]
-    ------ His jaw clenches for a moment before he regains his composure, his expression morphing into a contemptuous sneer beneath his grizzled beard, his eyes fixed on the vibrant frescoes above.
+    ------ His jaw clenches for a moment before he regains his composure, his expression morphing into a contemptuous sneer beneath his grizzled beard, his eyes fixed on the vibrant frescoes above. #Italic
    ****** [Continue]
    ------ Do not doubt the will of God. He has a plan for you. A plan for all of us, and it is our duty to follow it, no matter the cost.If you would...refuse to save Avram's soul, you would not only turn your back to him, to this community. You would be turning your back on God himself.
    ****** [Continue]
@@ -90,7 +90,7 @@ I suggest you attend to your own preparations, for there is much work to be done
 ** [Continue]
 She will be able to assist you with any concerns you may have. May the grace of God be with you.
 
-*** [1.Thank you for your guidance, Father. I will speak to the groom's mother and make sure everything is in order. (End dialogue)]
+*** [1.Thank you for your guidance, Father. I will speak to the groom's mother and make sure everything is in order.]
 
 -> END
 

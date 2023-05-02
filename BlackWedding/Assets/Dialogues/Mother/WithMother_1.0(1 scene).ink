@@ -58,7 +58,9 @@ Some semblance of peace. There has to be something we can do for him. Otherwise,
 -> Ending
 
 ==Ending==
-I know this is hard for you. But try to persevere, for my son's sake. We shall begin with preparations shortly.
+Endure this hardship for my son's sake, and ere the ceremony commences, take time to roam the church and gather thy thoughts. The preparations shall soon begin. 
 * [I...I need a moment to collect myself.]
+-> END
+* [Okay, I'll do it.]
 -> END
 
