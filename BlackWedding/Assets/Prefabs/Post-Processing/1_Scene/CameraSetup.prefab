@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128007908215696227}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CM CamContr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 _input;
     public static bool IsPaused = false;
     public bool paused = IsPaused;
+    [SerializeField] Animator animator;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -48,13 +50,15 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         //_rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.fixedDeltaTime);
-        if(_input.x  > 0 || _input.x < 0 || _input.z > 0 || _input.z < 0)
+        if (_input.x  > 0 || _input.x < 0 || _input.z > 0 || _input.z < 0)
         {
             _rb.velocity = transform.forward * _speed * Time.fixedDeltaTime;
+            animator.SetBool("IsWalking", _rb.velocity.magnitude > 0.01f);
         }
         else
         {
             _rb.velocity = new Vector3(0, 0, 0);
+            animator.SetBool("IsWalking",false);
         }
        
     }
