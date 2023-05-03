@@ -28,7 +28,7 @@ public class StoryInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable) //&& !isQuestObj)
         {
-
+            SceneFader.Instance.FadeInAgain();
             ShowUIPanel();
             if (!wasTaskPerformed)
             {
@@ -39,6 +39,7 @@ public class StoryInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            SceneFader.Instance.FadeInAgain();
             CloseUIPanel();
         }
     }

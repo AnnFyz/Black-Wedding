@@ -89,6 +89,7 @@ public class NPCInteraction : MonoBehaviour
     {
         if (interactionSymb.gameObject.activeSelf)
         {
+            SceneFader.Instance.FadeInAgain();
             uiPanel.gameObject.SetActive(true);
             interactionSymb.gameObject.SetActive(false);
             Time.timeScale = 0;
@@ -97,6 +98,7 @@ public class NPCInteraction : MonoBehaviour
         }
         else
         {
+            SceneFader.Instance.FadeInAgain();
             uiPanel.gameObject.SetActive(false);
             interactionSymb.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -106,6 +108,7 @@ public class NPCInteraction : MonoBehaviour
 
     public void CloseUIPanel()
     {
+        SceneFader.Instance.FadeInAgain();
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(true);
         Time.timeScale = 1;

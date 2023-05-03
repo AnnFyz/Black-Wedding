@@ -33,6 +33,7 @@ public class BasicInkExample : MonoBehaviour {
     {
 		Debug.Log("Load new Story");
     }
+
   //  private void Start()
   //  {
   //      if(NPC.titleOfNPC == NPCTitle.priest)
@@ -102,6 +103,7 @@ public class BasicInkExample : MonoBehaviour {
 			}
 			ActivateQuestObj();
 			NPC.Perform();
+			SceneFader.Instance.FadeInAgain();
 			NPC.CloseUIPanel();
 		}
 
@@ -111,6 +113,7 @@ public class BasicInkExample : MonoBehaviour {
 			Button choice = CreateChoiceView("Start new chapter?");
 			choice.onClick.AddListener(delegate
 			{
+				SceneFader.Instance.FadeTo();
 				GameManager.Instance.LoadNextScene();
 			});
 		}
