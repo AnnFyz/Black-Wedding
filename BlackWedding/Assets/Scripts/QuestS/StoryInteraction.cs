@@ -11,36 +11,28 @@ public class StoryInteraction : MonoBehaviour
     public bool isPlayerNearby = false;
     public bool wasTaskPerformed = false;
     public PlayerController player;
-    public bool isQuestObj = false;
-    public bool isSecondQuestObj = false;
-    public bool isInteractable = false;
+    public bool isQuestObj = true;
+    public bool isInteractable = true;
     public Action OnOpenedUIPanel;
     public BlueprintInk ink;
 
     private void Start()
     {
-        QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(false);
-        quest.OnGivenQuest += MakeQuestObjInteractable;
-        quest.OnSecondGivenQuest += MakeSecondQuestObjInteractable;
-        if (!isQuestObj && !isSecondQuestObj)
-        {
-            isInteractable = true;
-        }
     }
 
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable && !isQuestObj && !isSecondQuestObj)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable) //&& !isQuestObj)
         {
 
             ShowUIPanel();
             if (!wasTaskPerformed)
             {
-                Perform();
+                PerformQuestObj();
                 wasTaskPerformed = true;
             }
         }
@@ -93,37 +85,18 @@ public class StoryInteraction : MonoBehaviour
     }
 
 
-    void Perform()
+    void PerformQuestObj()
     {
-        if (!isQuestObj && !isSecondQuestObj)
-        {
+        
             if (uiPanel.gameObject.activeSelf)
             {
 
-                quest.PerformObjTask();
+                quest.PerformQuestObjTask();
             }
-        }
+
     }
 
-    void MakeQuestObjInteractable()
-    {
-        if (!isSecondQuestObj)
-        {
-            isInteractable = true;
-        }
-    }
 
-    void MakeSecondQuestObjInteractable()
-    {
-        Debug.Log("MakeSecondQuestObjInteractable");
-        isInteractable = true;
-    }
-
-    void UpdateRefToQuest()
-    {
-        quest = QuestManager.Instance.currentQuest;
-        quest.OnSecondGivenQuest += MakeSecondQuestObjInteractable;
-    }
 
     void LoadNewStoryWhileNPCCanvasInactive()
     {
