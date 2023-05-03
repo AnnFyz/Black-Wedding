@@ -1,9 +1,12 @@
-Second dialogue with priest in 3 scene
+Ah, my dear. It is good to see you have returned.
+And I see that you have completed the ritual. Well done
 
- * [There were two choices.]
- * [There were four lines of content.]
+ * [Thank you, Father.]
+ * [I'm glad I could be of help.]
+ 
+ Now is the moment, when you shall finally light the holy candle
 
-- They lived happily ever after. 
+ ** [I need some time to prepare myself]
+ ** [It shall be done.]
 
-* [Stay here] 
     -> END

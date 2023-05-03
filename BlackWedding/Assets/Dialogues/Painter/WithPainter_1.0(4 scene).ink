@@ -1,9 +1,4 @@
-First Dialogue with Painter in 4 scene (bad ending without painters obj)
-
- * There were two choices.
- * There were four lines of content.
-
-- They lived happily ever after. 
-
-* [Stay here] 
+"I beg your pardon, but alas, I cannot engage in conversation with you,
+replied the painter with a tinge of regret. # Italic
+* [Leave]
     -> END

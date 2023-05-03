@@ -1,4 +1,6 @@
-First Dialogue with Mother in 2 scene (bad ending)
+"Well, well,you've returned at last, my dear.
+*[Continue]
+And it appears that you've successfully completed the ritual.
 
  * There were two choices.
  * There were four lines of content.
