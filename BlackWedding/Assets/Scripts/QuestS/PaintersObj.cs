@@ -9,7 +9,7 @@ public class PaintersObj : MonoBehaviour
     private void Awake()
     {
         objectInteraction = GetComponent<ObjectInteraction>();
-        objectInteraction.isQuestObj = true;
+        //objectInteraction.isQuestObj = true;
         objectInteraction.isInteractable = true;
     }
     private void Update()

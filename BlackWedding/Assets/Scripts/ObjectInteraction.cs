@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ObjectInteraction : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ObjectInteraction : MonoBehaviour
     public bool isQuestObj = false;
     public bool isSecondQuestObj = false;
     public bool isInteractable = false;
+    public Action OnOpenedUIPanel;
+
 
     private void Start()
     {
@@ -55,6 +58,7 @@ public class ObjectInteraction : MonoBehaviour
             interactionSymb.gameObject.SetActive(true);
             isPlayerNearby = true;
             player = other.gameObject.GetComponent<PlayerController>();
+            OnOpenedUIPanel?.Invoke();
         }
     }
 
@@ -73,6 +77,7 @@ public class ObjectInteraction : MonoBehaviour
         if (interactionSymb.gameObject.activeSelf)
         {
             uiPanel.gameObject.SetActive(true);
+            Debug.Log("OPEN PANEL");
             interactionSymb.gameObject.SetActive(false);
         }
         else
