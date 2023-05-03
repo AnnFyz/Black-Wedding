@@ -2,10 +2,12 @@
 *[Continue]
 And it appears that you've successfully completed the ritual.
 
- * There were two choices.
- * There were four lines of content.
+ **[I understand, Mother. I will do this for Avram and for our family.]
+ The mother nodded #Italic
+ May the power of our traditions guide and protect us.
 
-- They lived happily ever after. 
+**[You wondered if the mother could see the doubt in your eyes]
+May the power of our traditions guide and protect us.
 
-* [Stay here] 
+*** [Leave] 
     -> END
