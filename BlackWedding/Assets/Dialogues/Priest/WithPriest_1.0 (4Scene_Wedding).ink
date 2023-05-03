@@ -1,10 +1,14 @@
-First dialogue with priest in 4 scene (go to wedding)
+I see that you have successfully completed the necessary ritual,
+the priest gazed at you with a look of approval in his eyes #Italic
+ * [You nodded] -> Start
+ * [ I am honored to have the opportunity to participate in the ceremony.] -> Start
 
- * [There were two choices.]
- * [There were four lines of content.]
 
-- They lived happily ever after. #LoadNewScene
-
-* [Go to wedding] 
+==Start==
+Now that you have proven yourself, we can proceed with the wedding. 
+* [Start the Black Wedding] 
+  Very well, my child #Ending
+  -> END
+* [I...I need some time to think. To consider what I am about to do.]
     -> END
 
