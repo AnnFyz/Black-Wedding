@@ -107,7 +107,8 @@ public class BasicInkExample : MonoBehaviour {
 
 		if (story.currentTags.Contains("LoadNewScene"))
 		{
-			Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+			Button choice = CreateChoiceView("Start new chapter?");
 			choice.onClick.AddListener(delegate
 			{
 				GameManager.Instance.LoadNextScene();
