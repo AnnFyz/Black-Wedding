@@ -186,7 +186,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: -0.34926474}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.68749994}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.073529415}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -563,10 +563,10 @@ MonoBehaviour:
     m_Value: 1
   limitMin:
     m_OverrideState: 1
-    m_Value: 11.5
+    m_Value: 11.612968
   limitMax:
     m_OverrideState: 1
-    m_Value: 12.5
+    m_Value: 12.330549
   curveMap:
     m_OverrideState: 0
     m_Value:
