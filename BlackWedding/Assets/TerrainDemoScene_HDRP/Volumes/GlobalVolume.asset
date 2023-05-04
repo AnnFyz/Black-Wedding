@@ -37,13 +37,13 @@ MonoBehaviour:
   active: 1
   indirectDiffuseLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 1.25
+    m_Value: 0.72
   indirectDiffuseLightingLayers:
     m_OverrideState: 0
     m_Value: 255
   reflectionLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 5
   reflectionLightingLayers:
     m_OverrideState: 0
     m_Value: 255
@@ -186,7 +186,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0.12867649}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.27573535}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.42279416}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
