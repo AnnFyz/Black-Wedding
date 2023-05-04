@@ -118,6 +118,18 @@ public class BasicInkExample : MonoBehaviour {
 			});
 		}
 
+		if (story.currentTags.Contains("#Ending"))
+		{
+			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+			Button choice = CreateChoiceView("End the story");
+			choice.onClick.AddListener(delegate
+			{
+				Debug.Log("LoadEndingScene");
+				SceneFader.Instance.FadeTo();
+				GameManager.Instance.LoadNextScene();
+			});
+		}
+
 		Canvas.ForceUpdateCanvases();
 	}
 

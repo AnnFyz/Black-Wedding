@@ -44,7 +44,7 @@ I found these blueprints in the iconostasis. And the painter is ready to prove t
    The priest took a step forward, his expression menacing. But you stood your ground, staring him down with a look of fierce determination.
   ********[I'll make sure everyone knows what you and the church have been hiding]
   The priest hesitated for a moment, then turned and fled from the church, leaving you alone with your thoughts and your newfound knowledge. #Ending
-   *********[End Story]
+   //*********[End Story]
   -> Ending
    
    
