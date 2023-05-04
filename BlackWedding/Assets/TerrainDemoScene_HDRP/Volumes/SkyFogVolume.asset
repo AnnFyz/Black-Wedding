@@ -41,7 +41,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 2000
   baseHeight:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: -28.1
   maximumHeight:
     m_OverrideState: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   depthExtent:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 700
   denoisingMode:
     m_OverrideState: 1
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9e4ed5a6f56fb4ebd693e39684f36f, type: 3}
   m_Name: VolumetricClouds
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -531,22 +531,22 @@ MonoBehaviour:
     m_Value: 55261.973
   aerosolDensity:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0.014
   aerosolTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.91194963, g: 0.97256786, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   aerosolMaximumAltitude:
     m_OverrideState: 1
     m_Value: 1500
   aerosolAnisotropy:
     m_OverrideState: 1
-    m_Value: 0.15
+    m_Value: 0.39
   numberOfBounces:
     m_OverrideState: 1
     m_Value: 4
   groundTint:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
   groundColorTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
