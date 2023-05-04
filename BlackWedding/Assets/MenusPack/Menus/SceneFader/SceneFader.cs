@@ -19,7 +19,8 @@ public class SceneFader : MonoBehaviour
     }
     private void Start()
     {
-        FadeIn();
+        FadeInAgain();
+        Debug.Log("AgainFading");
     }
 
     public void FadeIn()
