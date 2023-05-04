@@ -81,7 +81,7 @@ public class NPCInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            RotateTowardsPlayer(other.transform);
+            //RotateTowardsPlayer(other.transform);
         }
     }
 
