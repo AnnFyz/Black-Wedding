@@ -19,8 +19,8 @@ the priest gazed at you with a look of approval in his eyes #Italic
  Our society is under attack from all sides. We must be vigilant and steadfast in our defense of our culture.
  ********[I... I think I was wrong, Father] -> Ending
 ********[I'm sorry, Father, but I cannot support your way of thinking.] 
-Then you are no longer welcome in our community. You have chosen the path of heresy and betrayal. You will suffer the consequences of your actions!
- *********[I think it's time for me to leave the village]
+Then you are no longer welcome in our community. You have chosen the path of heresy and betrayal.You will suffer the consequences of your actions! #Ending
+ *********[I think it's time for me to leave the village] 
  ->Ending
 
 
