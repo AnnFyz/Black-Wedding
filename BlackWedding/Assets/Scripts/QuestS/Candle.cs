@@ -32,6 +32,9 @@ public class Candle : MonoBehaviour
     private void Start()
     {
         objectInteraction.quest.OnCompeletedQuest += CancelExtinguishAfterCompletingQuest;
+        //objectInteraction.quest.OnCompeletedQuest += CancelExtinguishAfterCompletingQuest;
+        QuestManager.Instance.quests[0].OnCompeletedQuest += CancelExtinguishAfterCompletingQuest;
+        QuestManager.Instance.quests[1].OnCompeletedQuest += CancelExtinguishAfterCompletingQuest;
         currentState = (CandleState)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CandleState)).Length);
         RandomExtinguish();
         SetRightMatAndParticles();
@@ -118,6 +121,8 @@ public class Candle : MonoBehaviour
 
     void CancelExtinguishAfterCompletingQuest()
     {
-        StopAllCoroutines();        wasCandleQuestPerformed = true;
+        Debug.Log("Cancel");
+        StopAllCoroutines();        
+        wasCandleQuestPerformed = true;
     }
 }

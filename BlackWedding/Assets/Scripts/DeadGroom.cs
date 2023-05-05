@@ -5,17 +5,19 @@ using UnityEngine;
 public class DeadGroom : MonoBehaviour
 {
     NPCInteraction npcInteraction;
-
+    public GameObject dialogueCan;
     private void Start()
     {
-       npcInteraction = GetComponent<NPCInteraction>();
-       npcInteraction.quest = QuestManager.Instance.quests[QuestManager.Instance.quests.Length -1];
-       npcInteraction.quest.OnCompeletedQuest += SetVisible;
-       gameObject.SetActive(false);
+     
+       QuestManager.Instance.quests[1].OnCompeletedQuest += SetVisible;
+        dialogueCan.SetActive(false);
     }
 
     void SetVisible()
     {
-       gameObject.SetActive(true);
+        if(QuestManager.Instance.questIndex > 0)
+        {
+            dialogueCan.SetActive(true);
+        }
     }
 }

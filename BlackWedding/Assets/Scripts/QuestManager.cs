@@ -21,6 +21,7 @@ public class QuestManager : MonoBehaviour
     {
         if(quests.Length > 1 && questIndex < quests.Length)
         {
+            currentQuest.currentAmountOfPerformedQuestObjTasks = 0;
             questIndex++;
             Debug.Log("Quest was updated");
         }

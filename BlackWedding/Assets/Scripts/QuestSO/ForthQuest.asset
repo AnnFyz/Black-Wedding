@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3914c4f7403d07c40bf82b55287e076b, type: 3}
   m_Name: ForthQuest
   m_EditorClassIdentifier: 
-  currentTypeOfQuest: 5
-  isQuestCompleted: 0
+  currentTypeOfQuest: 3
+  isQuestCompleted: 1
   amountOfAllWithObjInteractions: 0
   amountOfAllWithNPCInteractions: 0
   amountOfAllWithQuestObjInteractions: 1

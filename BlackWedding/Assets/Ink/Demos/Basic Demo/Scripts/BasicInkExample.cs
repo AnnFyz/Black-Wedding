@@ -25,8 +25,11 @@ public class BasicInkExample : MonoBehaviour {
 		NPC = GetComponentInParent<NPCInteraction>();
 		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStory;
 		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadSt;
-		NPC.OnOpenedUIPanel += StartStory;
-		NPC.OnOpenedUIPanel += LoadSt;
+		if(NPC != null)
+        {
+			NPC.OnOpenedUIPanel += StartStory;
+			NPC.OnOpenedUIPanel += LoadSt;
+		}
 	}
 
 	public void LoadSt()
