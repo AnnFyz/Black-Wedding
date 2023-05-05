@@ -20,4 +20,6 @@ public class DeadGroom : MonoBehaviour
             dialogueCan.SetActive(true);
         }
     }
+
+
 }

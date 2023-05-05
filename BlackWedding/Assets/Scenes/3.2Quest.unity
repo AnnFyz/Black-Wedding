@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 439.2444, g: 528.68225, b: 636.3854, a: 1}
+  m_IndirectSpecularColor: {r: 439.22144, g: 528.64905, b: 636.36194, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15874,7 +15874,7 @@ PrefabInstance:
     - target: {fileID: 2073481056945058926, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888.3834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2073481056945058926, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}
@@ -15899,7 +15899,7 @@ PrefabInstance:
     - target: {fileID: 2073481057144613669, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888.3834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2073481057144613669, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}
@@ -15935,6 +15935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeadGroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073481057983188010, guid: cb96c72b48659f142beae28ad7c06d34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2073481057983188011, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}
@@ -16014,7 +16019,7 @@ PrefabInstance:
     - target: {fileID: 2073481058008840428, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 888.3834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2073481058008840428, guid: cb96c72b48659f142beae28ad7c06d34,
         type: 3}

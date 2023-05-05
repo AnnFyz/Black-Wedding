@@ -23,10 +23,26 @@ public class HolyCandle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && !wasTaskPerformed)
         {
             Debug.Log("Make lit for holy candle");
+            
+            objectInteraction.uiPanel.gameObject.SetActive(true);
+            PlayerController.IsPaused = true;
             Perform();
             LitHolyCandle();
             wasTaskPerformed = true;
-        }      
+        }
+        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby)
+        {
+            Debug.Log("groom");
+
+            //objectInteraction.uiPanel.gameObject.SetActive(true);
+            //PlayerController.IsPaused = true;
+         
+        }
+        else
+        {
+            //objectInteraction.uiPanel.gameObject.SetActive(false);
+            //PlayerController.IsPaused = false;
+        }
     }
 
     void LitHolyCandle()
