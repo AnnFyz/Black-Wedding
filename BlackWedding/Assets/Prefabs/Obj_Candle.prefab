@@ -106,11 +106,12 @@ MonoBehaviour:
   maxTimeToRandomExtinguish: 15
   minTimeToRandomExtinguish: 5
   isCoroutineExecuting: 0
-  renderer: {fileID: 8913014161829342966}
-  extinguishedMat: {fileID: 2100000, guid: 640a1ef7cb921964a817e9b717c9568c, type: 2}
-  litMat: {fileID: 2100000, guid: b0ef9a5d6b8e880429c13df405bf7024, type: 2}
+  renderer: {fileID: 4943908927304839600}
+  extinguishedMat: {fileID: 2100000, guid: 741145a197297164fb7dfe20b2c22ab6, type: 2}
+  litMat: {fileID: 2100000, guid: 92981b80c7efbba49864201cb18d43b4, type: 2}
   wasTaskPerformed: 0
   wasCandleQuestPerformed: 0
+  light: {fileID: 6007203048683118968}
 --- !u!1 &3629849226955791041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,7 +5134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6007203047640765932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5727,7 +5728,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 92981b80c7efbba49864201cb18d43b4, type: 2}
+      objectReference: {fileID: 2100000, guid: 741145a197297164fb7dfe20b2c22ab6, type: 2}
     - target: {fileID: 919132149155446097, guid: eaa77c59bb6f9284d9738b05c665d5bd,
         type: 3}
       propertyPath: m_Name
@@ -5735,6 +5736,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa77c59bb6f9284d9738b05c665d5bd, type: 3}
+--- !u!23 &4943908927304839600 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: eaa77c59bb6f9284d9738b05c665d5bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6007203048764583220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6113467328714558175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eaa77c59bb6f9284d9738b05c665d5bd,

@@ -22,8 +22,10 @@ public class Candle : MonoBehaviour
     ObjectInteraction objectInteraction;
     public bool  wasTaskPerformed = false;
     public bool wasCandleQuestPerformed = false;
+    public GameObject light;
     private void Awake()
     {
+        light.SetActive(false);
         objectInteraction = GetComponent<ObjectInteraction>();
         objectInteraction.isQuestObj = true;
     }
@@ -81,10 +83,12 @@ public class Candle : MonoBehaviour
     {
         if (currentState == CandleState.extinguished)
         {
+            light.SetActive(false);
             renderer.material = extinguishedMat;
         }
         if (currentState == CandleState.lit)
         {
+            light.SetActive(true);
             renderer.material = litMat;
         }
     }
