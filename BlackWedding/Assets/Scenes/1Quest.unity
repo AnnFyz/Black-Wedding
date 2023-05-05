@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 439.2444, g: 528.6821, b: 636.3854, a: 1}
+  m_IndirectSpecularColor: {r: 432.87708, g: 519.80115, b: 623.3246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -368,7 +368,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.012146711
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
@@ -378,12 +378,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.016304255
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9735419
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
@@ -393,7 +393,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.22850853
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
@@ -408,7 +408,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -26.419
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd0957dcb51fab1458d4128265a59759,
         type: 3}
@@ -1434,7 +1434,7 @@ Transform:
   - {fileID: 249596243}
   - {fileID: 514484787}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &287493203 stripped
 Transform:
@@ -6695,7 +6695,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166352692}
-  m_LocalRotation: {x: -0, y: -0.41769603, z: -0, w: 0.9085868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.788, y: -0.005, z: 3.568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6705,8 +6705,8 @@ Transform:
   - {fileID: 971144089}
   - {fileID: 163704307}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: -49.378, z: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1166352694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6736,7 +6736,7 @@ MonoBehaviour:
   uiPanel: {fileID: 163704307}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
-  titleOfNPC: 0
+  titleOfNPC: 2
   ink: {fileID: 314034426}
 --- !u!1 &1176854914
 GameObject:
@@ -7263,7 +7263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1283920135
 GameObject:
@@ -7473,7 +7473,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327503754
 GameObject:
@@ -7882,7 +7882,7 @@ PrefabInstance:
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.755
+      value: 17.308
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -7892,7 +7892,7 @@ PrefabInstance:
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.83
+      value: -8.21
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -7933,6 +7933,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obj_FirstQuest_Old (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999198723580614855, guid: 25b9f46600084464eb85e5dec0d63e63,
+        type: 3}
+      propertyPath: m_text
+      value: Amidst the saintly figures and divine imagery, there are intricate,
+        mechanical-looking elements that seem almost out of place.
       objectReference: {fileID: 0}
     - target: {fileID: 6999198723723511535, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -8039,7 +8045,7 @@ Transform:
   m_Children:
   - {fileID: 1898555914496632175}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -184.73, z: 0}
 --- !u!114 &1483146939
 MonoBehaviour:
@@ -9082,7 +9088,7 @@ PrefabInstance:
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 15.05
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -9092,7 +9098,7 @@ PrefabInstance:
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.56
+      value: 12.01
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -9134,6 +9140,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obj_FirstQuest_Old (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6999198723580614855, guid: 25b9f46600084464eb85e5dec0d63e63,
+        type: 3}
+      propertyPath: m_text
+      value: 'An enormous brass chandelier hangs from the ceiling, its once-gleaming
+        surface now tarnished with age and neglect. '
+      objectReference: {fileID: 0}
     - target: {fileID: 6999198723723511535, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_Camera
@@ -9151,7 +9163,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4fba9efe26279114595109f310d368ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4fba9efe26279114595109f310d368ed,
         type: 3}
@@ -10205,7 +10217,7 @@ Transform:
   - {fileID: 1272690460}
   - {fileID: 2121016395}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!1 &1795420039
 GameObject:
@@ -11937,7 +11949,7 @@ PrefabInstance:
     - target: {fileID: 1802378169231654920, guid: fd0a7679824744d4a9efa143066a9800,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1802378169231654920, guid: fd0a7679824744d4a9efa143066a9800,
         type: 3}
@@ -12267,8 +12279,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148847825567}
-  m_LocalRotation: {x: -0, y: -0.5928064, z: -0, w: 0.80534506}
-  m_LocalPosition: {x: -0.05497563, y: -0.371, z: 0.005525589}
+  m_LocalRotation: {x: -0, y: -0.76438445, z: -0, w: 0.64476085}
+  m_LocalPosition: {x: -0.070593834, y: -0.371, z: -0.009613037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12277,7 +12289,7 @@ Transform:
   - {fileID: 4843656634168974534}
   m_Father: {fileID: 3678402850266818541}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -72.713, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -99.705, z: 0}
 --- !u!4 &543450653443981818
 Transform:
   m_ObjectHideFlags: 0
@@ -14272,7 +14284,7 @@ MonoBehaviour:
   uiPanel: {fileID: 3678402851135351595}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
-  titleOfNPC: 0
+  titleOfNPC: 2
   ink: {fileID: 3678402850985266722}
 --- !u!1 &3678402850266818540
 GameObject:
@@ -14299,7 +14311,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3678402850266818540}
-  m_LocalRotation: {x: -0, y: -0.1821218, z: -0, w: 0.98327607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.79, y: 0.08, z: 12.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14309,8 +14321,8 @@ Transform:
   - {fileID: 3678402851135351595}
   - {fileID: 3678402850818515021}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: -20.987, z: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3678402850266818542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16783,12 +16795,12 @@ PrefabInstance:
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.958
+      value: 9.6
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -16798,7 +16810,7 @@ PrefabInstance:
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.662
+      value: 10.12
       objectReference: {fileID: 0}
     - target: {fileID: 6999198722604175415, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -16839,6 +16851,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obj_FirstQuest_Old
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999198723580614855, guid: 25b9f46600084464eb85e5dec0d63e63,
+        type: 3}
+      propertyPath: m_text
+      value: 'A small votive candle flickers in the dim light, casting eerie shadows
+        on the ancient stone walls. '
       objectReference: {fileID: 0}
     - target: {fileID: 6999198723723511535, guid: 25b9f46600084464eb85e5dec0d63e63,
         type: 3}
@@ -17001,7 +17019,7 @@ PrefabInstance:
     - target: {fileID: 7376206924619505434, guid: fcfa3f972fb18f5448a098b0b7e7adf7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7376206924619505434, guid: fcfa3f972fb18f5448a098b0b7e7adf7,
         type: 3}
@@ -19270,7 +19288,7 @@ Transform:
   - {fileID: 9183008057089838453}
   - {fileID: 9183008057435964947}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9183008058714983126
 BoxCollider:
@@ -19301,7 +19319,7 @@ MonoBehaviour:
   uiPanel: {fileID: 9183008057435964947}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
-  titleOfNPC: 0
+  titleOfNPC: 2
   ink: {fileID: 9183008057325740826}
 --- !u!4 &9218608025636944665
 Transform:
