@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flower : MonoBehaviour
 {
     ObjectInteraction objectInteraction;
+    public GameObject[] flowers;
     private void Awake()
     {
         objectInteraction = GetComponent<ObjectInteraction>();
@@ -21,19 +22,37 @@ public class Flower : MonoBehaviour
     {
         if (objectInteraction.player != null)
         {
-            for (int i = 0; i < objectInteraction.player.transform.GetChild(0).childCount; i++) // Flowers child ob has to be the first!
+            for (int i = 0; i < flowers.Length; i++) // Flowers child ob has to be the first!
             {
-                if (!objectInteraction.player.transform.GetChild(0).GetChild(i).gameObject.activeSelf)
+                if (!flowers[i].gameObject.activeSelf)
                 {
-                    objectInteraction.player.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+                    flowers[i].SetActive(true);
                     Perform();
                     Destroy(transform.parent.gameObject);
                     break;
                 }
-             
+
             }
         }
     }
+
+    //void PickFlower()
+    //{
+    //    if (objectInteraction.player != null)
+    //    {
+    //        for (int i = 0; i < objectInteraction.player.transform.GetChild(0).childCount; i++) // Flowers child ob has to be the first!
+    //        {
+    //            if (!objectInteraction.player.transform.GetChild(0).GetChild(i).gameObject.activeSelf)
+    //            {
+    //                objectInteraction.player.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
+    //                Perform();
+    //                Destroy(transform.parent.gameObject);
+    //                break;
+    //            }
+
+    //        }
+    //    }
+    //}
 
     void Perform()
     {
