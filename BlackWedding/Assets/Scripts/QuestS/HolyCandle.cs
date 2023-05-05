@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class HolyCandle : MonoBehaviour
 {
-    public Renderer[] renderers;
-    public Material extinguishedMat;
-    public Material litMat;
+    public GameObject holyCandle;
     ObjectInteraction objectInteraction;
     public bool wasTaskPerformed = false;
     private void Awake()
@@ -15,7 +13,10 @@ public class HolyCandle : MonoBehaviour
         objectInteraction.isQuestObj = false;
         objectInteraction.isSecondQuestObj = true;
     }
-
+    private void Start()
+    {
+        holyCandle.SetActive(false);
+    }
 
     private void Update()
     {
@@ -30,10 +31,7 @@ public class HolyCandle : MonoBehaviour
 
     void LitHolyCandle()
     {
-        foreach (var candle in renderers)
-        {
-            candle.material = litMat;
-        }
+        holyCandle.SetActive(true);
     }
     void Perform()
     {
