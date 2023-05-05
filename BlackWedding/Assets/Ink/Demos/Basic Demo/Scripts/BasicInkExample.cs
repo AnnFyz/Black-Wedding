@@ -115,6 +115,8 @@ public class BasicInkExample : MonoBehaviour {
 			{
 				SceneFader.Instance.FadeTo();
 				GameManager.Instance.LoadNextScene();
+				Time.timeScale = 1f;
+				PlayerController.IsPaused = false;
 			});
 		}
 
@@ -127,6 +129,9 @@ public class BasicInkExample : MonoBehaviour {
 				Debug.Log("LoadEndingScene");
 				SceneFader.Instance.FadeTo();
 				GameManager.Instance.LoadNextScene();
+				Time.timeScale = 1f;
+				PlayerController.IsPaused = false;
+
 			});
 		}
 

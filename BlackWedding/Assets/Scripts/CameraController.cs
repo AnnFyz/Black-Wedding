@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0 && currentCameraType == CameraType.perspective)
        {
-            newDistPer -= Input.GetAxis("Mouse ScrollWheel") * sensitivityZoomingPer;
+            newDistPer += Input.GetAxis("Mouse ScrollWheel") * sensitivityZoomingPer;
             newDistPer = Mathf.Clamp(newDistPer, minDistPer, maxDistPer);
             cameraOffset.m_Offset.z = newDistPer;
         }

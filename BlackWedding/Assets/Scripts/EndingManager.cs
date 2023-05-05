@@ -17,6 +17,8 @@ public class EndingManager : MonoBehaviour
     public bool SpokeWithPriest = false;
     public Endings currentEnding;
     public Action OnChangedEnding;
+    public int endingIndex;
+
     private void Awake()
     {
         Instance = this;
@@ -45,12 +47,12 @@ public class EndingManager : MonoBehaviour
     {
         if (QuestManager.Instance.currentQuest.isQuestCompleted)
         {
-            if (SpokeWithPainter && SpokeWithMother)
+            if (SpokeWithPainter)
             {
                 currentEnding = Endings.good;
                 OnChangedEnding?.Invoke();
             }
-            else if (SpokeWithPainter)
+            else if (SpokeWithMother)
             {
                 currentEnding = Endings.neutral;
                 OnChangedEnding?.Invoke();

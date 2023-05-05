@@ -16,8 +16,13 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     private void Update()
     {
+          paused = IsPaused;;
         if (!IsPaused)
         {
             GatherInput();
