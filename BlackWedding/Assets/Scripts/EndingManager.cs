@@ -31,6 +31,7 @@ public class EndingManager : MonoBehaviour
             if (title == NPCTitle.painter)
             {
                 SpokeWithPainter = true;
+
             }
             if (title == NPCTitle.mother)
             {
@@ -50,11 +51,13 @@ public class EndingManager : MonoBehaviour
             if (SpokeWithPainter)
             {
                 currentEnding = Endings.good;
+                endingIndex = 2;
                 OnChangedEnding?.Invoke();
             }
             else if (SpokeWithMother)
             {
                 currentEnding = Endings.neutral;
+                endingIndex = 1;
                 OnChangedEnding?.Invoke();
             }
             else
@@ -66,6 +69,7 @@ public class EndingManager : MonoBehaviour
         else
         {
             currentEnding = Endings.bad;
+            endingIndex = 0;
             OnChangedEnding?.Invoke();
         }
     }

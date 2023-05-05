@@ -50,11 +50,22 @@ public class NPCInteraction : MonoBehaviour
         {
 
             ShowUIPanel();
+            if (titleOfNPC == NPCTitle.priest)
+            {
+
+                ink.LoadNewStory();
+                OnOpenedUIPanel += LoadPriestEndingStory;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             CloseUIPanel();
+            if (titleOfNPC == NPCTitle.priest)
+            {
+                ink.LoadNewStory();
+                OnOpenedUIPanel += LoadPriestEndingStory;
+            }
         }
     }
 

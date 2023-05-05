@@ -18,6 +18,7 @@ public class BasicInkExample : MonoBehaviour {
 	public int storyIndexToActivateSecondQuestObj = 0;
 	[SerializeField] TextAsset[] inkJSONAssetsEndings;
 	[SerializeField] int endingStoryIndex = 0;
+	public GameObject paintersObj;
 	void Awake () {
 		// Remove the default message
 		RemoveChildren();
@@ -98,16 +99,24 @@ public class BasicInkExample : MonoBehaviour {
 		//}
 		else
 		{
-			if(EndingManager.Instance != null)
+			if(EndingManager.Instance != null && NPC != null)
             {
 				EndingManager.Instance.MarkCompletedConversation(NPC.titleOfNPC);
 				EndingManager.Instance.DetermineTheEnding();
 
 			}
 			ActivateQuestObj();
-			NPC.Perform();
-			SceneFader.Instance.FadeInAgain();
-			NPC.CloseUIPanel();
+			if(NPC != null)
+            {
+				NPC.Perform();
+				SceneFader.Instance.FadeInAgain();
+				NPC.CloseUIPanel();
+			}
+            else if(paintersObj != null)
+            {
+				SceneFader.Instance.FadeInAgain();
+				paintersObj.SetActive(false);
+			}
 		}
 
 		if (story.currentTags.Contains("LoadNewScene"))
@@ -123,7 +132,7 @@ public class BasicInkExample : MonoBehaviour {
 			});
 		}
 
-		if (story.currentTags.Contains("#Ending"))
+		if (story.currentTags.Contains("Ending"))
 		{
 			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
 			Button choice = CreateChoiceView("End the story");
@@ -131,12 +140,36 @@ public class BasicInkExample : MonoBehaviour {
 			{
 				Debug.Log("LoadEndingScene");
 				SceneFader.Instance.FadeTo();
-				GameManager.Instance.LoadNextScene();
+				//GameManager.Instance.LoadNextScene();
 				Time.timeScale = 1f;
 				PlayerController.IsPaused = false;
+				EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
 
 			});
 		}
+
+		if (story.currentTags.Contains("TheEnd"))
+		{
+			Debug.Log("LoadEndingScene");
+			SceneFader.Instance.FadeTo();
+			//GameManager.Instance.LoadNextScene();
+			Time.timeScale = 1f;
+			PlayerController.IsPaused = false;
+			GameManager.Instance.Quit();
+			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+			//Button choice = CreateChoiceView("End the story");
+			//choice.onClick.AddListener(delegate
+			//{
+			//	Debug.Log("LoadEndingScene");
+			//	SceneFader.Instance.FadeTo();
+			//	//GameManager.Instance.LoadNextScene();
+			//	Time.timeScale = 1f;
+			//	PlayerController.IsPaused = false;
+			//	EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+
+			//});
+		}
+		else
 
 		Canvas.ForceUpdateCanvases();
 	}
@@ -220,15 +253,18 @@ public class BasicInkExample : MonoBehaviour {
 		if(EndingManager.Instance.currentEnding == Endings.bad)
         {
 			endingStoryIndex = 0;
+			storyIndex = 0;
 
 		}
 		if (EndingManager.Instance.currentEnding == Endings.neutral)
 		{
 			endingStoryIndex = 1;
+			storyIndex = 1;
 		}
 		if (EndingManager.Instance.currentEnding == Endings.good)
 		{
 			endingStoryIndex = 2;
+			storyIndex = 2;
 		}
 	}
 

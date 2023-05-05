@@ -6,11 +6,16 @@ public class PaintersObj : MonoBehaviour
 {
     ObjectInteraction objectInteraction;
     public bool wasTaskPerformed = false;
+    public GameObject dialogueCanvas;
     private void Awake()
     {
         objectInteraction = GetComponent<ObjectInteraction>();
         //objectInteraction.isQuestObj = true;
         objectInteraction.isInteractable = true;
+    }
+    private void Start()
+    {
+        dialogueCanvas.SetActive(false);
     }
     private void Update()
     {
@@ -18,6 +23,7 @@ public class PaintersObj : MonoBehaviour
         {
             Debug.Log("Collect painters obj");
             Perform();
+            dialogueCanvas.SetActive(true);
             wasTaskPerformed = true;
         }
     }
