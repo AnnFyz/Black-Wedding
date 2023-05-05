@@ -18,7 +18,6 @@ public class EndingStorySelector : MonoBehaviour
     }
     public void SelectEndingStory(int newIndex)
     {
-        Debug.Log("SelectEndingSt");
         endingStoryIndex = newIndex;
         canvasDialogie.SetActive(true);
         inkStory.storyIndex = endingStoryIndex;

@@ -66,17 +66,43 @@ public class BasicInkExample : MonoBehaviour {
 	// This is the main function called every time the story changes. It does a few things:
 	// Destroys all the old content and choices.
 	// Continues over all the lines of text, then displays all the choices. If there are no choices, the story is finished!
-	void RefreshView () {
+	public void RefreshView () {
 		// Remove all the UI on screen
 		RemoveChildren ();
 		// Read all the content until we can't continue any more
-		while (story.canContinue) {
+		while (story.canContinue)
+		{
 			// Continue gets the next line of the story
 			string text = story.Continue ();
 			// This removes any white space from the text.
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
+
+			if (story.currentTags.Contains("Bad"))
+			{
+				storyIndex = 0;
+				endingStoryIndex = 0;
+				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
+				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+				Debug.Log("endingStoryIndex " + endingStoryIndex);
+			}
+			if (story.currentTags.Contains("Neutral"))
+			{
+				storyIndex = 1;
+				endingStoryIndex = 1;
+				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
+				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+				Debug.Log("endingStoryIndex " + endingStoryIndex);
+			}
+			if (story.currentTags.Contains("Good"))
+			{
+				storyIndex = 2;
+				endingStoryIndex = 2;
+				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
+				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+				Debug.Log("endingStoryIndex " + endingStoryIndex);
+			}
 		}
 
 		// Display all the choices, if there are any!
@@ -90,6 +116,7 @@ public class BasicInkExample : MonoBehaviour {
 				});
 			}
 		}
+
 		// If we've read all the content and there's no choices, the story is finished!
 		//else {
 		//	Button choice = CreateChoiceView("End of story.\nRestart?");
@@ -148,31 +175,9 @@ public class BasicInkExample : MonoBehaviour {
 			});
 		}
 
-		if (story.currentTags.Contains("TheEnd"))
-		{
-			Debug.Log("LoadEndingScene");
-			SceneFader.Instance.FadeTo();
-			//GameManager.Instance.LoadNextScene();
-			Time.timeScale = 1f;
-			PlayerController.IsPaused = false;
-			GameManager.Instance.Quit();
-			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
-			//Button choice = CreateChoiceView("End the story");
-			//choice.onClick.AddListener(delegate
-			//{
-			//	Debug.Log("LoadEndingScene");
-			//	SceneFader.Instance.FadeTo();
-			//	//GameManager.Instance.LoadNextScene();
-			//	Time.timeScale = 1f;
-			//	PlayerController.IsPaused = false;
-			//	EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-
-			//});
-		}
-		else
-
 		Canvas.ForceUpdateCanvases();
 	}
+
 
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {

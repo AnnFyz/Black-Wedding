@@ -19,13 +19,15 @@ the priest gazed at you with a look of approval in his eyes #Italic
  ********[I... I think I was wrong, Father] -> Ending
 ********[I'm sorry, Father, but I cannot support your way of thinking.] 
 Then you are no longer welcome in our community. You have chosen the path of heresy and betrayal. You will suffer the consequences of your actions!
- *********[Accuse the church of hypocrisy] ->Reveal
- *********[I think it's time for me to leave the village]
+ *********[Accuse the church of hypocrisy] ->Reveal 
+ *********[I think it's time for me to leave the village] //#Neutral
+Very well, my child #Ending
+ **********[Stay] 
  ->Ending
 
 
 ==Reveal==
-You wear these cyber prostheses, don't you?
+You wear these cyber prostheses, don't you? #Good
 *[Continue]
 And yet you and the church publicly prohibit their use, claiming that they are against God's will.
 **[Continue]
@@ -44,7 +46,7 @@ I found these blueprints in the iconostasis. And the painter is ready to prove t
    The priest took a step forward, his expression menacing. But you stood your ground, staring him down with a look of fierce determination.
   ********[I'll make sure everyone knows what you and the church have been hiding]
   The priest hesitated for a moment, then turned and fled from the church, leaving you alone with your thoughts and your newfound knowledge. #Ending
-   //*********[End Story]
+ **********[Stay] 
   -> Ending
    
    

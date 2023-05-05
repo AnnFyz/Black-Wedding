@@ -5,7 +5,7 @@ the priest gazed at you with a look of approval in his eyes #Italic
 
 
 ==Start==
-Now that you have proven yourself, we can proceed with the wedding. 
+Now that you have proven yourself, we can proceed with the wedding. #Bad
 * [Start the Black Wedding] 
   Very well, my child #Ending
   ** [Stay] 
