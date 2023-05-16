@@ -2,63 +2,20 @@
 using UnityEngine.UI;
 using System;
 using Ink.Runtime;
-using TMPro;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
-	[SerializeField]
-	public int storyIndex = 0;
-	[SerializeField]
-	public NPCInteraction NPC;
-	[SerializeField] bool IsThisNPSGivesQuest = false;
-	[SerializeField]
-	public int storyIndexToActivateQuestObj = 0;
-	[SerializeField]
-	public int storyIndexToActivateSecondQuestObj = 0;
-	[SerializeField] TextAsset[] inkJSONAssetsEndings;
-	[SerializeField] int endingStoryIndex = 0;
-	public GameObject paintersObj;
-	void Awake () {
+	
+    void Awake () {
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
-		NPC = GetComponentInParent<NPCInteraction>();
-		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStory;
-		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadSt;
-		if(NPC != null)
-        {
-			NPC.OnOpenedUIPanel += StartStory;
-			NPC.OnOpenedUIPanel += LoadSt;
-		}
 	}
 
-	public void LoadSt()
-    {
-		Debug.Log("Load new Story");
-    }
-
-  //  private void Start()
-  //  {
-  //      if(NPC.titleOfNPC == NPCTitle.priest)
-  //      {
-		//	if (EndingManager.Instance != null)
-		//	{
-		//		NPC.OnOpenedUIPanel -= StartStory;
-		//		Debug.Log("Unsubscribe start story");
-		//		NPC.OnOpenedUIPanel += StartSelectedEndingStory;
-		//		EndingManager.Instance.OnChangedEnding += SelectEndingStory;
-		//	}
-		//}
-  //  }
-    // Creates a new Story object with the compiled story which we can then play!
-    public void StartStory () 
-	{
-		Canvas.ForceUpdateCanvases();
-		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
-        {
-			story = new Story(inkJSONAssets[storyIndex].text);
-		}
+	// Creates a new Story object with the compiled story which we can then play!
+	void StartStory () {
+		story = new Story (inkJSONAsset.text);
         if(OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
@@ -66,43 +23,18 @@ public class BasicInkExample : MonoBehaviour {
 	// This is the main function called every time the story changes. It does a few things:
 	// Destroys all the old content and choices.
 	// Continues over all the lines of text, then displays all the choices. If there are no choices, the story is finished!
-	public void RefreshView () {
+	void RefreshView () {
 		// Remove all the UI on screen
 		RemoveChildren ();
+		
 		// Read all the content until we can't continue any more
-		while (story.canContinue)
-		{
+		while (story.canContinue) {
 			// Continue gets the next line of the story
 			string text = story.Continue ();
 			// This removes any white space from the text.
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
-
-			if (story.currentTags.Contains("Bad"))
-			{
-				storyIndex = 0;
-				endingStoryIndex = 0;
-				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-				Debug.Log("endingStoryIndex " + endingStoryIndex);
-			}
-			if (story.currentTags.Contains("Neutral"))
-			{
-				storyIndex = 1;
-				endingStoryIndex = 1;
-				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-				Debug.Log("endingStoryIndex " + endingStoryIndex);
-			}
-			if (story.currentTags.Contains("Good"))
-			{
-				storyIndex = 2;
-				endingStoryIndex = 2;
-				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-				Debug.Log("endingStoryIndex " + endingStoryIndex);
-			}
 		}
 
 		// Display all the choices, if there are any!
@@ -116,68 +48,14 @@ public class BasicInkExample : MonoBehaviour {
 				});
 			}
 		}
-
 		// If we've read all the content and there's no choices, the story is finished!
-		//else {
-		//	Button choice = CreateChoiceView("End of story.\nRestart?");
-		//	choice.onClick.AddListener(delegate{
-		//		StartStory();
-		//	});
-		//}
-		else
-		{
-			if(EndingManager.Instance != null && NPC != null)
-            {
-				EndingManager.Instance.MarkCompletedConversation(NPC.titleOfNPC);
-				EndingManager.Instance.DetermineTheEnding();
-
-			}
-			ActivateQuestObj();
-			if(NPC != null)
-            {
-				NPC.Perform();
-				SceneFader.Instance.FadeInAgain();
-				NPC.CloseUIPanel();
-			}
-            else if(paintersObj != null)
-            {
-				SceneFader.Instance.FadeInAgain();
-				paintersObj.SetActive(false);
-			}
-		}
-
-		if (story.currentTags.Contains("LoadNewScene"))
-		{
-			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
-			Button choice = CreateChoiceView("Start new chapter?");
-			choice.onClick.AddListener(delegate
-			{
-				SceneFader.Instance.FadeTo();
-				GameManager.Instance.LoadNextScene();
-				Time.timeScale = 1f;
-				PlayerController.IsPaused = false;
+		else {
+			Button choice = CreateChoiceView("End of story.\nRestart?");
+			choice.onClick.AddListener(delegate{
+				StartStory();
 			});
 		}
-
-		if (story.currentTags.Contains("Ending"))
-		{
-			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
-			Button choice = CreateChoiceView("End the story");
-			choice.onClick.AddListener(delegate
-			{
-				Debug.Log("LoadEndingScene");
-				SceneFader.Instance.FadeTo();
-				//GameManager.Instance.LoadNextScene();
-				Time.timeScale = 1f;
-				PlayerController.IsPaused = false;
-				EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-
-			});
-		}
-
-		Canvas.ForceUpdateCanvases();
 	}
-
 
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
@@ -187,17 +65,9 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		if (story.currentTags.Count > 0 && story.currentTags.Contains("Italic"))
-		{
-			storyText = Instantiate(textPrefabItalic) as TMP_Text;
-		}
-        else 
-        {
-			storyText = Instantiate(TextPrefab) as TMP_Text;
-		}
+		Text storyText = Instantiate (textPrefab) as Text;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
-		canvas.GetComponent<VerticalLayoutGroup>().spacing = 0;
 	}
 
 	// Creates a button showing the choice text
@@ -205,17 +75,17 @@ public class BasicInkExample : MonoBehaviour {
 		// Creates the button from a prefab
 		Button choice = Instantiate (buttonPrefab) as Button;
 		choice.transform.SetParent (canvas.transform, false);
-
+		
 		// Gets the text from the button prefab
-		TMP_Text choiceText = choice.GetComponentInChildren<TMP_Text> ();
-		//choiceText.text = text;
-		choiceText.text = text.Trim();
+		Text choiceText = choice.GetComponentInChildren<Text> ();
+		choiceText.text = text;
+
 		// Make the button expand to fit the text
 		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();
 		layoutGroup.childForceExpandHeight = false;
+
 		return choice;
 	}
-
 
 	// Destroys all the children of this gameobject (all the UI)
 	void RemoveChildren () {
@@ -225,83 +95,16 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
-	public void LoadNewStory()
-    {		
-		if(inkJSONAssets.Length > 1 && storyIndex < inkJSONAssets.Length -1)
-		{
-			Debug.Log("was loaded new Story");
-			storyIndex++;
-			Canvas.ForceUpdateCanvases();
-			StartStory();
-		}
-    }
-
-	void ActivateQuestObj()
-    {
-        if (IsThisNPSGivesQuest)
-        {
-			if(storyIndex == storyIndexToActivateQuestObj && NPC.quest == QuestManager.Instance.quests[0])
-            {
-				QuestManager.Instance.currentQuest.MakeObjInteractable();
-            }
-
-			if (storyIndex == storyIndexToActivateSecondQuestObj && NPC.quest == QuestManager.Instance.quests[QuestManager.Instance.quests.Length - 1])
-			{
-				Debug.Log("MakeSecondObjInteractable");
-				QuestManager.Instance.currentQuest.MakeSecondObjInteractable();
-			}
-		}
-	}
-
-	public void SelectEndingStory()
-    {
-		if(EndingManager.Instance.currentEnding == Endings.bad)
-        {
-			endingStoryIndex = 0;
-			storyIndex = 0;
-
-		}
-		if (EndingManager.Instance.currentEnding == Endings.neutral)
-		{
-			endingStoryIndex = 1;
-			storyIndex = 1;
-		}
-		if (EndingManager.Instance.currentEnding == Endings.good)
-		{
-			endingStoryIndex = 2;
-			storyIndex = 2;
-		}
-	}
-
-	 void StartEndingStory(int endingStoryIndex)
-	{
-		Canvas.ForceUpdateCanvases();
-		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
-		{
-			story = new Story(inkJSONAssetsEndings[endingStoryIndex].text);
-		}
-		if (OnCreateStory != null) OnCreateStory(story);
-		RefreshView();
-	}
-	public void StartSelectedEndingStory()
-    {		
-			StartEndingStory(endingStoryIndex);
-	}
-	//[SerializeField]
-	//private TextAsset currentInkJSONAsset = null;
 	[SerializeField]
-	private TextAsset[] inkJSONAssets;
+	private TextAsset inkJSONAsset = null;
 	public Story story;
 
 	[SerializeField]
-	private GameObject canvas = null;
+	private Canvas canvas = null;
 
 	// UI Prefabs
 	[SerializeField]
-	private TMP_Text TextPrefab = null; 
-	[SerializeField]
-	private TMP_Text textPrefabItalic = null;
-	private TMP_Text storyText = null;
+	private Text textPrefab = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
 }
