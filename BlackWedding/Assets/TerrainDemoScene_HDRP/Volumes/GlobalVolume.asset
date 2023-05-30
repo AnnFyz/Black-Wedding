@@ -181,7 +181,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.97919714, y: 0.9779335, z: 1, w: 0.048116464}
+    m_Value: {x: 0.981, y: 0.98, z: 1, w: 0.048116464}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0.12867649}
@@ -700,10 +700,10 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.932
+    m_Value: 0.517
   response:
     m_OverrideState: 0
     m_Value: 0.8
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
   m_Name: HDShadowSettings
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   maxShadowDistance:
     m_OverrideState: 0
     m_Value: 10229508
@@ -774,13 +774,13 @@ MonoBehaviour:
     m_Value: 4
   cascadeShadowSplit0:
     m_OverrideState: 1
-    m_Value: 0.031
+    m_Value: 0.790582
   cascadeShadowSplit1:
     m_OverrideState: 1
-    m_Value: 0.031
+    m_Value: 0.87520564
   cascadeShadowSplit2:
     m_OverrideState: 1
-    m_Value: 0.146
+    m_Value: 0.92474574
   cascadeShadowBorder0:
     m_OverrideState: 1
     m_Value: 0.011
@@ -789,7 +789,7 @@ MonoBehaviour:
     m_Value: 0.02
   cascadeShadowBorder2:
     m_OverrideState: 1
-    m_Value: 0.023
+    m_Value: 0
   cascadeShadowBorder3:
     m_OverrideState: 1
     m_Value: 0.043
