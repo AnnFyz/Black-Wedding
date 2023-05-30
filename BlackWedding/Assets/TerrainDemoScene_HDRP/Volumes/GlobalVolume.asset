@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Value: 255
   reflectionLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 30
   reflectionLightingLayers:
     m_OverrideState: 0
     m_Value: 255
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   maxShadowDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 10229508
   directionalTransmissionMultiplier:
     m_OverrideState: 1
@@ -814,22 +814,22 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1.81
+    m_Value: 1.86
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.01
   radius:
     m_OverrideState: 1
     m_Value: 1.25
   spatialBilateralAggressiveness:
-    m_OverrideState: 0
-    m_Value: 0.15
+    m_OverrideState: 1
+    m_Value: 0.369
   temporalAccumulation:
     m_OverrideState: 0
     m_Value: 1
   ghostingReduction:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 0.418
   blurSharpness:
     m_OverrideState: 0
     m_Value: 0.1
@@ -849,13 +849,13 @@ MonoBehaviour:
     m_Value: 1
   m_StepCount:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 10
   m_FullResolution:
     m_OverrideState: 1
     m_Value: 1
   m_MaximumRadiusInPixels:
     m_OverrideState: 1
-    m_Value: 76
+    m_Value: 78
   m_BilateralUpsample:
     m_OverrideState: 1
     m_Value: 1
@@ -903,23 +903,23 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   maxDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 10000
   minDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   fadeDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 5
   fadeInDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 716.6
   rayBias:
     m_OverrideState: 1
     m_Value: 0
   thicknessScale:
     m_OverrideState: 1
-    m_Value: 0.682
+    m_Value: 1
   m_SampleCount:
     m_OverrideState: 1
     m_Value: 20
