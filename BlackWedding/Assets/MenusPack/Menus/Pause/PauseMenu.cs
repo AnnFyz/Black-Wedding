@@ -13,23 +13,31 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Toggle();
+            
+        }
+       // PauseAllActions();
+    }
+
+    void PauseAllActions()
+    {
+        if (ui.activeSelf)
+        {
+            PlayerController.IsPaused = true;
+            Time.timeScale = 0f;
+          
+        }
+        else
+        {
+            PlayerController.IsPaused = false;
+            Time.timeScale = 1f;
         }
     }
 
     public void Toggle()
     {
         ui.SetActive(!ui.activeSelf);
-
-        if (ui.activeSelf)
-        {
-            Time.timeScale = 0f;
-            PlayerController.IsPaused = true;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            PlayerController.IsPaused = false;
-        }
+        PlayerController.IsPaused = ui.activeSelf;
+       // PauseAllActions();
     }
 
     public void Retry()

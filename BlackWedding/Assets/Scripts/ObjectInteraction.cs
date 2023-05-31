@@ -30,6 +30,7 @@ public class ObjectInteraction : MonoBehaviour
             isInteractable = true;
         }
     }
+    
 
     private void Update()
     {
@@ -47,7 +48,15 @@ public class ObjectInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            CloseUIPanel();
+            if (!PlayerController.IsPaused)
+            {
+                CloseUIPanel();
+            }
+            else
+            {
+                uiPanel.gameObject.SetActive(false);
+                interactionSymb.gameObject.SetActive(false);
+            }
         }
     }
 
