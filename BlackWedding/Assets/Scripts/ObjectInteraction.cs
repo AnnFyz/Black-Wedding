@@ -15,7 +15,7 @@ public class ObjectInteraction : MonoBehaviour
     public bool isSecondQuestObj = false;
     public bool isInteractable = false;
     public Action OnOpenedUIPanel;
-
+    public bool wasSymbolAlreadyActivated = false;
 
     private void Start()
     {
@@ -30,33 +30,55 @@ public class ObjectInteraction : MonoBehaviour
             isInteractable = true;
         }
     }
-    
+
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable && !isQuestObj && !isSecondQuestObj)
+        if (!GameManager.Instance.isGamePaused)
         {
-
-            ShowUIPanel();
-            if (!wasTaskPerformed)
+            if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby && isInteractable && !isQuestObj && !isSecondQuestObj)
             {
-                Perform();
-                wasTaskPerformed = true;
+
+                ShowUIPanel();
+                if (!wasTaskPerformed)
+                {
+                    Perform();
+                    wasTaskPerformed = true;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!GameManager.Instance.isGamePaused)
+                {
+                    CloseUIPanel();
+                }
+                else if (wasSymbolAlreadyActivated)
+                {
+                    uiPanel.gameObject.SetActive(false);
+                    interactionSymb.gameObject.SetActive(true);
+                }
+                else 
+                {
+                    uiPanel.gameObject.SetActive(false);
+                    interactionSymb.gameObject.SetActive(false);
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        else if (wasSymbolAlreadyActivated)
         {
-            if (!GameManager.Instance.isGamePaused)
+            if(GameManager.Instance.isGamePaused)
             {
-                CloseUIPanel();
+                interactionSymb.gameObject.SetActive(true);
             }
-            else
-            {
-                uiPanel.gameObject.SetActive(false);
-                interactionSymb.gameObject.SetActive(false);
-            }
+          
+        }
+
+        else
+        {
+            uiPanel.gameObject.SetActive(false);
+            interactionSymb.gameObject.SetActive(false);
         }
     }
 
@@ -65,6 +87,7 @@ public class ObjectInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && isInteractable)
         {
             interactionSymb.gameObject.SetActive(true);
+            wasSymbolAlreadyActivated = true;
             isPlayerNearby = true;
             player = other.gameObject.GetComponent<PlayerController>();
             OnOpenedUIPanel?.Invoke();
@@ -76,6 +99,7 @@ public class ObjectInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             interactionSymb.gameObject.SetActive(false);
+            wasSymbolAlreadyActivated = false;
             uiPanel.gameObject.SetActive(false);
             isPlayerNearby = false;
             player = null;
@@ -89,17 +113,22 @@ public class ObjectInteraction : MonoBehaviour
             Debug.Log("OPEN PANEL");
             interactionSymb.gameObject.SetActive(false);
         }
-        else
+        else //if (!GameManager.Instance.isGamePaused)
         {
             uiPanel.gameObject.SetActive(false);
             interactionSymb.gameObject.SetActive(true);
         }
+     
     }
 
     public void CloseUIPanel()
     {
-        uiPanel.gameObject.SetActive(false);
-        interactionSymb.gameObject.SetActive(true);
+        if (!GameManager.Instance.isGamePaused)
+        {
+            uiPanel.gameObject.SetActive(false);
+            interactionSymb.gameObject.SetActive(true);
+
+        }
     }
 
 
@@ -129,7 +158,7 @@ public class ObjectInteraction : MonoBehaviour
         isInteractable = true;
     }
 
-    void UpdateRefToQuest ()
+    void UpdateRefToQuest()
     {
         quest = QuestManager.Instance.currentQuest;
         quest.OnSecondGivenQuest += MakeSecondQuestObjInteractable;
