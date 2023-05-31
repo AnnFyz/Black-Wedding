@@ -44,29 +44,36 @@ public class NPCInteraction : MonoBehaviour
     }
 
     private void Update()
-    { 
-
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)
+    {
+        if (!GameManager.Instance.isGamePaused)
         {
-
-            ShowUIPanel();
-            if (titleOfNPC == NPCTitle.priest)
+            if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)
             {
+                GameManager.Instance.isSpeaking = true;
+                ShowUIPanel();
+                if (titleOfNPC == NPCTitle.priest)
+                {
 
-                ink.LoadNewStory();
-                OnOpenedUIPanel += LoadPriestEndingStory;
+                    ink.LoadNewStory();
+                    OnOpenedUIPanel += LoadPriestEndingStory;
+                }
+            }
+        }
+        if (GameManager.Instance.isSpeaking)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.Instance.isSpeaking = false;
+                CloseUIPanel();
+                if (titleOfNPC == NPCTitle.priest)
+                {
+                    ink.LoadNewStory();
+                    OnOpenedUIPanel += LoadPriestEndingStory;
+                }
+
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            CloseUIPanel();
-            if (titleOfNPC == NPCTitle.priest)
-            {
-                ink.LoadNewStory();
-                OnOpenedUIPanel += LoadPriestEndingStory;
-            }
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,7 +91,7 @@ public class NPCInteraction : MonoBehaviour
         {
             interactionSymb.gameObject.SetActive(false);
             uiPanel.gameObject.SetActive(false);
-            isPlayerNearby = false; 
+            isPlayerNearby = false;
         }
     }
 
@@ -104,7 +111,7 @@ public class NPCInteraction : MonoBehaviour
             uiPanel.gameObject.SetActive(true);
             interactionSymb.gameObject.SetActive(false);
             Time.timeScale = 0;
-            PlayerController.IsPaused = true;
+            GameManager.Instance.isGamePaused = true;
             OnOpenedUIPanel?.Invoke();
         }
         else
@@ -113,7 +120,7 @@ public class NPCInteraction : MonoBehaviour
             uiPanel.gameObject.SetActive(false);
             interactionSymb.gameObject.SetActive(true);
             Time.timeScale = 1;
-            PlayerController.IsPaused = false;
+            //GameManager.Instance.isGamePaused = false;
         }
     }
 
@@ -123,7 +130,7 @@ public class NPCInteraction : MonoBehaviour
         uiPanel.gameObject.SetActive(false);
         interactionSymb.gameObject.SetActive(true);
         Time.timeScale = 1;
-        PlayerController.IsPaused = false;
+        GameManager.Instance.isGamePaused = false;
     }
 
     void RotateTowardsPlayer(Transform player)
@@ -153,10 +160,10 @@ public class NPCInteraction : MonoBehaviour
 
     void LoadNewStoryWhileNPCCanvasInactive()
     {
-      
-            ink.LoadNewStory();
-            ink.LoadSt();
-           
+
+        ink.LoadNewStory();
+        ink.LoadSt();
+
     }
 
     void LoadPriestEndingStory()

@@ -25,7 +25,7 @@ public class HolyCandle : MonoBehaviour
             Debug.Log("Make lit for holy candle");
             
             objectInteraction.uiPanel.gameObject.SetActive(true);
-            PlayerController.IsPaused = true;
+            GameManager.Instance.isGamePaused = true;
             Perform();
             LitHolyCandle();
             wasTaskPerformed = true;

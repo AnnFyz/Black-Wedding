@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] int nextSceneIndex;
     public float time;
+    public bool isGamePaused;
+    public bool isSpeaking;
+
     private void Awake()
     {
         Instance = this;
@@ -28,5 +31,20 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void PauseAllActions(bool timeToPause)
+    {
+        if (timeToPause)
+        {
+            GameManager.Instance.isGamePaused = true;
+            Time.timeScale = 0f;
+
+        }
+        else
+        {
+            GameManager.Instance.isGamePaused = false;
+            Time.timeScale = 1f;
+        }
     }
 }

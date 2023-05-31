@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _turnSpeed = 360;
     private Vector3 _input;
-    public static bool IsPaused = false;
-    public bool paused = IsPaused;
     [SerializeField] Animator animator;
 
     private void Awake()
@@ -22,8 +20,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-          paused = IsPaused;;
-        if (!IsPaused)
+        if (!GameManager.Instance.isGamePaused)
         {
             GatherInput();
             Look();
@@ -33,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsPaused)
+        if (!GameManager.Instance.isGamePaused)
         {
             Move();
         }       

@@ -46,6 +46,7 @@ public class SceneFader : MonoBehaviour
     {
         if (!isCoroutineExecuting)
         {
+            isCoroutineExecuting = true;
             while (fadeInTime > 0)
             {
                 fadeInTime -= Time.unscaledDeltaTime;
@@ -54,9 +55,10 @@ public class SceneFader : MonoBehaviour
                 yield return 0;
             }
             Debug.Log("FadeInCor");
+           
         }
      
-        isCoroutineExecuting = true;
+  
     }
 
 

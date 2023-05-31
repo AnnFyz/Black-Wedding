@@ -78,7 +78,7 @@ public class InteractionHandler : MonoBehaviour
     {
         uiPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
-        PlayerController.IsPaused = false;
+        GameManager.Instance.isGamePaused = false;
         //interactionSymb.gameObject.SetActive(true);
     }
 
@@ -94,6 +94,7 @@ public class InteractionHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+           
             CloseUIPanel();
         }
     }

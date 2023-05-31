@@ -39,6 +39,7 @@ public class StoryInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GameManager.Instance.isSpeaking = true;
             SceneFader.Instance.FadeInAgain();
             CloseUIPanel();
         }

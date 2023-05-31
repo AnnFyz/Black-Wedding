@@ -48,7 +48,7 @@ public class ObjectInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!PlayerController.IsPaused)
+            if (!GameManager.Instance.isGamePaused)
             {
                 CloseUIPanel();
             }

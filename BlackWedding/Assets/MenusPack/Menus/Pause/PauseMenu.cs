@@ -8,27 +8,27 @@ public class PauseMenu : MonoBehaviour
     public GameObject ui;
     public SceneFader sceneFader;
     public int mainMenuIndex = 0;
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isSpeaking)
         {
             Toggle();
             
         }
-       // PauseAllActions();
     }
 
     void PauseAllActions()
     {
         if (ui.activeSelf)
         {
-            PlayerController.IsPaused = true;
+            GameManager.Instance.isGamePaused = true;
             Time.timeScale = 0f;
           
         }
         else
         {
-            PlayerController.IsPaused = false;
+            GameManager.Instance.isGamePaused = false;
             Time.timeScale = 1f;
         }
     }
@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
     public void Toggle()
     {
         ui.SetActive(!ui.activeSelf);
-        PlayerController.IsPaused = ui.activeSelf;
+        GameManager.Instance.PauseAllActions(ui.activeSelf);
        // PauseAllActions();
     }
 
