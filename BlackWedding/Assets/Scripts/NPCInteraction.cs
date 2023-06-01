@@ -11,17 +11,12 @@ public enum NPCTitle
 }
 public class NPCInteraction : MonoBehaviour
 {
-    public enum NPCState
-    {
-        interactable,
-        notInteractable
-    }
-
+   
     [SerializeField] Transform interactionSymb;
     [SerializeField] Transform uiPanel;
     public QuestSO quest;
     public Vector3 defaultAngle;
-    bool isPlayerNearby = false;
+    public bool isPlayerNearby { get; }
     bool wasTaskPerformed = false;
     public Action OnOpenedUIPanel;
     public NPCTitle titleOfNPC;
@@ -30,11 +25,11 @@ public class NPCInteraction : MonoBehaviour
     private void Start()
     {
         QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStoryWhileNPCCanvasInactive;
-        if (titleOfNPC == NPCTitle.priest)
-        {
-            UnsubscribeStartStory();
-            OnOpenedUIPanel += LoadPriestEndingStory;
-        }
+        //if (titleOfNPC == NPCTitle.priest)
+        //{
+        //    UnsubscribeStartStory();
+        //    OnOpenedUIPanel += LoadPriestEndingStory;
+        //}
         // the same updating for ending story
         QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
@@ -51,12 +46,12 @@ public class NPCInteraction : MonoBehaviour
             {
                 GameManager.Instance.isSpeaking = true;
                 ShowUIPanel();
-                if (titleOfNPC == NPCTitle.priest)
-                {
+                //if (titleOfNPC == NPCTitle.priest)
+                //{
 
-                    ink.LoadNewStory();
-                    OnOpenedUIPanel += LoadPriestEndingStory;
-                }
+                //    ink.LoadNewStory();
+                //    OnOpenedUIPanel += LoadPriestEndingStory;
+                //}
             }
         }
         if (GameManager.Instance.isSpeaking)
@@ -65,11 +60,11 @@ public class NPCInteraction : MonoBehaviour
             {
                 GameManager.Instance.isSpeaking = false;
                 CloseUIPanel();
-                if (titleOfNPC == NPCTitle.priest)
-                {
-                    ink.LoadNewStory();
-                    OnOpenedUIPanel += LoadPriestEndingStory;
-                }
+                //if (titleOfNPC == NPCTitle.priest)
+                //{
+                //    ink.LoadNewStory();
+                //    OnOpenedUIPanel += LoadPriestEndingStory;
+                //}
 
             }
         }
@@ -166,29 +161,29 @@ public class NPCInteraction : MonoBehaviour
 
     }
 
-    void LoadPriestEndingStory()
-    {
+    //void LoadPriestEndingStory()
+    //{
 
-        if (titleOfNPC == NPCTitle.priest)
-        {
-            if (EndingManager.Instance != null)
-            {
-                OnOpenedUIPanel += ink.StartSelectedEndingStory;
-                EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
-                Debug.Log("Load priest ending story");
-            }
-        }
-    }
+    //    if (titleOfNPC == NPCTitle.priest)
+    //    {
+    //        if (EndingManager.Instance != null)
+    //        {
+    //            OnOpenedUIPanel += ink.StartSelectedEndingStory;
+    //            EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
+    //            Debug.Log("Load priest ending story");
+    //        }
+    //    }
+    //}
 
-    void UnsubscribeStartStory()
-    {
-        if (EndingManager.Instance != null)
-        {
-            if (titleOfNPC == NPCTitle.priest)
-            {
-                OnOpenedUIPanel -= ink.StartStory;
-                Debug.Log("Unsubscribe start story");
-            }
-        }
-    }
+    //void UnsubscribeStartStory()
+    //{
+    //    if (EndingManager.Instance != null)
+    //    {
+    //        if (titleOfNPC == NPCTitle.priest)
+    //        {
+    //            OnOpenedUIPanel -= ink.StartStory;
+    //            Debug.Log("Unsubscribe start story");
+    //        }
+    //    }
+    //}
 }
