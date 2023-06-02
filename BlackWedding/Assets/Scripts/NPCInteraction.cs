@@ -16,7 +16,7 @@ public class NPCInteraction : MonoBehaviour
     [SerializeField] Transform uiPanel;
     public QuestSO quest;
     public Vector3 defaultAngle;
-    public bool isPlayerNearby { get; }
+    public bool isPlayerNearby { get; private set; }
     bool wasTaskPerformed = false;
     public Action OnOpenedUIPanel;
     public NPCTitle titleOfNPC;
