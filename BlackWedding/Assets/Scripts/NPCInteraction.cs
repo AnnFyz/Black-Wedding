@@ -69,6 +69,8 @@ public class NPCInteraction : MonoBehaviour
             }
         }
 
+     
+
     }
 
     private void OnTriggerEnter(Collider other)

@@ -46,33 +46,15 @@ public class ObjectInteraction : MonoBehaviour
                     wasTaskPerformed = true;
                 }
             }
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (!GameManager.Instance.isGamePaused)
-                {
-                    CloseUIPanel();
-                }
-                else if (wasSymbolAlreadyActivated)
-                {
-                    uiPanel.gameObject.SetActive(false);
-                    interactionSymb.gameObject.SetActive(true);
-                }
-                else 
-                {
-                    uiPanel.gameObject.SetActive(false);
-                    interactionSymb.gameObject.SetActive(false);
-                }
-            }
         }
-
         else if (wasSymbolAlreadyActivated)
         {
-            if(GameManager.Instance.isGamePaused)
+            if (GameManager.Instance.isGamePaused)
             {
+                CloseUIPanel();
                 interactionSymb.gameObject.SetActive(true);
             }
-          
+
         }
 
         else
@@ -113,22 +95,18 @@ public class ObjectInteraction : MonoBehaviour
             Debug.Log("OPEN PANEL");
             interactionSymb.gameObject.SetActive(false);
         }
-        else //if (!GameManager.Instance.isGamePaused)
+        else 
         {
             uiPanel.gameObject.SetActive(false);
             interactionSymb.gameObject.SetActive(true);
         }
-     
+
     }
 
     public void CloseUIPanel()
     {
-        if (!GameManager.Instance.isGamePaused)
-        {
-            uiPanel.gameObject.SetActive(false);
-            interactionSymb.gameObject.SetActive(true);
-
-        }
+        uiPanel.gameObject.SetActive(false);
+        interactionSymb.gameObject.SetActive(true);
     }
 
 
