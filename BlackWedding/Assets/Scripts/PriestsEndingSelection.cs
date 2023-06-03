@@ -5,7 +5,6 @@ using System;
 
 public class PriestsEndingSelection : MonoBehaviour
 {
-    public Action OnOpenedUIPanel;
     public NPCTitle titleOfNPC;
     public BasicInkExample ink;
 
@@ -14,7 +13,8 @@ public class PriestsEndingSelection : MonoBehaviour
         if (titleOfNPC == NPCTitle.priest)
         {
             UnsubscribeStartStory();
-            OnOpenedUIPanel += LoadPriestEndingStory;
+            gameObject.GetComponent<NPCInteraction>().OnOpenedUIPanel += LoadPriestEndingStory;
+            EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
         }
     }
 
@@ -28,7 +28,7 @@ public class PriestsEndingSelection : MonoBehaviour
                 {
 
                     ink.LoadNewStory();
-                    OnOpenedUIPanel += LoadPriestEndingStory;
+                    //OnOpenedUIPanel += LoadPriestEndingStory;
                 }
             }
         }
@@ -39,7 +39,7 @@ public class PriestsEndingSelection : MonoBehaviour
                 if (titleOfNPC == NPCTitle.priest)
                 {
                     ink.LoadNewStory();
-                    OnOpenedUIPanel += LoadPriestEndingStory;
+                    //OnOpenedUIPanel += LoadPriestEndingStory;
                 }
 
             }
@@ -54,9 +54,12 @@ public class PriestsEndingSelection : MonoBehaviour
         {
             if (EndingManager.Instance != null)
             {
-                OnOpenedUIPanel += ink.StartSelectedEndingStory;
-                EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
-                Debug.Log("Load priest ending story");
+                //OnOpenedUIPanel += ink.StartSelectedEndingStory;                
+                //Debug.Log("Load priest ending story");
+                //ink.LoadNewStory();
+                //ink.storyIndex = ink.endingStoryIndex;
+                ink.StartEndingStory();
+                Debug.Log("StartSelectedEndingStory");
             }
         }
     }
@@ -67,8 +70,8 @@ public class PriestsEndingSelection : MonoBehaviour
         {
             if (titleOfNPC == NPCTitle.priest)
             {
-                OnOpenedUIPanel -= ink.StartStory;
-                Debug.Log("Unsubscribe start story");
+                gameObject.GetComponent<NPCInteraction>().OnOpenedUIPanel -= ink.StartStory;
+                //Debug.Log("Unsubscribe start story");
             }
         }
     }

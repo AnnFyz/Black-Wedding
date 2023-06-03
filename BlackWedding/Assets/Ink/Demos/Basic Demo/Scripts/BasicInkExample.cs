@@ -17,25 +17,25 @@ public class BasicInkExample : MonoBehaviour {
 	[SerializeField]
 	public int storyIndexToActivateSecondQuestObj = 0;
 	[SerializeField] TextAsset[] inkJSONAssetsEndings;
-	[SerializeField] int endingStoryIndex = 0;
+	public int endingStoryIndex; //{ get; private set; }
 	public GameObject paintersObj;
 	void Awake () {
 		// Remove the default message
 		RemoveChildren();
 		StartStory();
 		NPC = GetComponentInParent<NPCInteraction>();
-		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStory;
-		//QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadSt;
-		if(NPC != null)
-        {
-			NPC.OnOpenedUIPanel += StartStory;
-			NPC.OnOpenedUIPanel += LoadSt;
-		}
+        //QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStory;
+        //QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadSt;
+  //      if (NPC != null)
+  //      {
+  //          NPC.OnOpenedUIPanel += StartStory;
+		//	NPC.OnOpenedUIPanel += LoadSt;
+		//}
 	}
 
 	public void LoadSt()
     {
-		Debug.Log("Load new Story");
+		//Debug.Log("Load new Story");
     }
 
   //  private void Start()
@@ -79,31 +79,31 @@ public class BasicInkExample : MonoBehaviour {
 			// Display the text on screen!
 			CreateContentView(text);
 
-			if (story.currentTags.Contains("Bad"))
-			{
-				storyIndex = 0;
-				endingStoryIndex = 0;
-				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-				Debug.Log("endingStoryIndex " + endingStoryIndex);
-			}
-			if (story.currentTags.Contains("Neutral"))
-			{
-				storyIndex = 1;
-				endingStoryIndex = 1;
-				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-				Debug.Log("endingStoryIndex " + endingStoryIndex);
-			}
-			if (story.currentTags.Contains("Good"))
-			{
-				storyIndex = 2;
-				endingStoryIndex = 2;
-				EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-				//EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-				Debug.Log("endingStoryIndex " + endingStoryIndex);
-			}
-		}
+            //if (story.currentTags.Contains("Bad"))
+            //{
+            //    storyIndex = 0;
+            //    endingStoryIndex = 0;
+            //    EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
+            //   // EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+            //    Debug.Log("endingStoryIndex " + endingStoryIndex + " Bad");
+            //}
+            //if (story.currentTags.Contains("Neutral"))
+            //{
+            //    storyIndex = 1;
+            //    endingStoryIndex = 1;
+            //    EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
+            //   // EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+            //    Debug.Log("endingStoryIndex " + endingStoryIndex + " Neutral");
+            //}
+            //if (story.currentTags.Contains("Good"))
+            //{
+            //    storyIndex = 2;
+            //    endingStoryIndex = 2;
+            //    EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
+            //    //EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+            //    Debug.Log("endingStoryIndex " + endingStoryIndex + " Good");
+            //}
+        }
 
 		// Display all the choices, if there are any!
 		if(story.currentChoices.Count > 0) {
@@ -124,7 +124,7 @@ public class BasicInkExample : MonoBehaviour {
 		//		StartStory();
 		//	});
 		//}
-		else
+		else if (story.currentChoices.Count == 0)
 		{
 			if(EndingManager.Instance != null && NPC != null)
             {
@@ -170,7 +170,11 @@ public class BasicInkExample : MonoBehaviour {
 				//GameManager.Instance.LoadNextScene();
 				Time.timeScale = 1f;
 				//GameManager.Instance.isGamePaused = false;
-				EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+				if(EndingStorySelector.Instance != null)
+                {
+					EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+
+				}
 
 			});
 		}
@@ -229,12 +233,13 @@ public class BasicInkExample : MonoBehaviour {
     {		
 		if(inkJSONAssets.Length > 1 && storyIndex < inkJSONAssets.Length -1)
 		{
-			Debug.Log("was loaded new Story");
+			//Debug.Log("was loaded new Story");
 			storyIndex++;
 			Canvas.ForceUpdateCanvases();
 			StartStory();
 		}
     }
+
 
 	void ActivateQuestObj()
     {
@@ -253,43 +258,54 @@ public class BasicInkExample : MonoBehaviour {
 		}
 	}
 
-	public void SelectEndingStory()
+    public void SelectEndingStory()
     {
-		if(EndingManager.Instance.currentEnding == Endings.bad)
+        if (EndingManager.Instance.currentEnding == Endings.bad)
         {
-			endingStoryIndex = 0;
-			storyIndex = 0;
+            endingStoryIndex = 0;
+            storyIndex = 0;
+			Debug.Log("SelectEndingStory" + endingStoryIndex);
 
 		}
-		if (EndingManager.Instance.currentEnding == Endings.neutral)
-		{
-			endingStoryIndex = 1;
-			storyIndex = 1;
-		}
-		if (EndingManager.Instance.currentEnding == Endings.good)
-		{
-			endingStoryIndex = 2;
-			storyIndex = 2;
-		}
-	}
+        if (EndingManager.Instance.currentEnding == Endings.neutral)
+        {
+            endingStoryIndex = 1;
+            storyIndex = 1;
+			Debug.Log("SelectEndingStory" + endingStoryIndex);
 
-	 void StartEndingStory(int endingStoryIndex)
+		}
+        if (EndingManager.Instance.currentEnding == Endings.good)
+        {
+            endingStoryIndex = 2;
+            storyIndex = 2;
+			Debug.Log("SelectEndingStory" + endingStoryIndex);
+		}
+    }
+
+  //  void StartEndingStory(int endingStoryIndex)
+  //  {
+  //      Canvas.ForceUpdateCanvases();
+		////if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
+		////{
+		//story = new Story(inkJSONAssetsEndings[endingStoryIndex].text);
+  //      Debug.Log("StartEndingStory " + endingStoryIndex);
+  //      //}
+  //      if (OnCreateStory != null) OnCreateStory(story);
+  //      RefreshView();
+  //  }
+
+	public void StartEndingStory()
 	{
 		Canvas.ForceUpdateCanvases();
-		if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
-		{
-			story = new Story(inkJSONAssetsEndings[endingStoryIndex].text);
-		}
+	    story = new Story(inkJSONAssets[endingStoryIndex].text);
 		if (OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
 	}
-	public void StartSelectedEndingStory()
-    {		
-			StartEndingStory(endingStoryIndex);
-	}
-	//[SerializeField]
-	//private TextAsset currentInkJSONAsset = null;
-	[SerializeField]
+
+
+    //[SerializeField]
+    //private TextAsset currentInkJSONAsset = null;
+    [SerializeField]
 	private TextAsset[] inkJSONAssets;
 	public Story story;
 

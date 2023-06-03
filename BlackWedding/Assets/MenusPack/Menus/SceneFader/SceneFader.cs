@@ -54,7 +54,6 @@ public class SceneFader : MonoBehaviour
                 img.color = new Color(0, 0, 0, a);
                 yield return 0;
             }
-            Debug.Log("FadeInCor");
            
         }
      
@@ -66,14 +65,12 @@ public class SceneFader : MonoBehaviour
     public void FadeTo(int sceneIndex)
     {
         StartCoroutine(FadeOut(sceneIndex));
-        Debug.Log("FadeTo");
     }
 
   
     public void FadeTo()
     {
         StartCoroutine(FadeOut());
-        Debug.Log("FadeTo");
     }
 
     IEnumerator FadeOut(int sceneIndex)
@@ -85,7 +82,6 @@ public class SceneFader : MonoBehaviour
             img.color = new Color(0, 0, 0, a);
             yield return 0;
         }
-        Debug.Log("FadeOut");
         SceneManager.LoadScene(sceneIndex);
     }
 
@@ -101,7 +97,6 @@ public class SceneFader : MonoBehaviour
                 yield return 0;
             }
         }
-        Debug.Log("FadeOut");
         isCoroutineExecuting = true;
     }
 }

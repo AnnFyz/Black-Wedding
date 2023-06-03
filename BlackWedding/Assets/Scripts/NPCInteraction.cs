@@ -11,7 +11,7 @@ public enum NPCTitle
 }
 public class NPCInteraction : MonoBehaviour
 {
-   
+
     [SerializeField] Transform interactionSymb;
     [SerializeField] Transform uiPanel;
     public QuestSO quest;
@@ -25,6 +25,7 @@ public class NPCInteraction : MonoBehaviour
     private void Start()
     {
         QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStoryWhileNPCCanvasInactive;
+        OnOpenedUIPanel += StartTheStoryWhileNPCCanvasInactive;
         //if (titleOfNPC == NPCTitle.priest)
         //{
         //    UnsubscribeStartStory();
@@ -69,7 +70,7 @@ public class NPCInteraction : MonoBehaviour
             }
         }
 
-     
+
 
     }
 
@@ -157,35 +158,49 @@ public class NPCInteraction : MonoBehaviour
 
     void LoadNewStoryWhileNPCCanvasInactive()
     {
-
-        ink.LoadNewStory();
-        ink.LoadSt();
-
+        if (titleOfNPC != NPCTitle.priest)
+        {
+            ink.LoadNewStory();
+            ink.LoadSt();
+        }
     }
 
-    //void LoadPriestEndingStory()
-    //{
+    void StartTheStoryWhileNPCCanvasInactive()
+    {
+        if (titleOfNPC != NPCTitle.priest)
+        {
+            ink.StartStory();
+            ink.LoadSt();
+        }
+    }
 
-    //    if (titleOfNPC == NPCTitle.priest)
-    //    {
-    //        if (EndingManager.Instance != null)
-    //        {
-    //            OnOpenedUIPanel += ink.StartSelectedEndingStory;
-    //            EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
-    //            Debug.Log("Load priest ending story");
-    //        }
-    //    }
-    //}
-
-    //void UnsubscribeStartStory()
-    //{
-    //    if (EndingManager.Instance != null)
-    //    {
-    //        if (titleOfNPC == NPCTitle.priest)
-    //        {
-    //            OnOpenedUIPanel -= ink.StartStory;
-    //            Debug.Log("Unsubscribe start story");
-    //        }
-    //    }
-    //}
 }
+
+
+
+//void LoadPriestEndingStory()
+//{
+
+//    if (titleOfNPC == NPCTitle.priest)
+//    {
+//        if (EndingManager.Instance != null)
+//        {
+//            OnOpenedUIPanel += ink.StartSelectedEndingStory;
+//            EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
+//            Debug.Log("Load priest ending story");
+//        }
+//    }
+//}
+
+//void UnsubscribeStartStory()
+//{
+//    if (EndingManager.Instance != null)
+//    {
+//        if (titleOfNPC == NPCTitle.priest)
+//        {
+//            OnOpenedUIPanel -= ink.StartStory;
+//            Debug.Log("Unsubscribe start story");
+//        }
+//    }
+//}
+

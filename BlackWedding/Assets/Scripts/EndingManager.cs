@@ -53,17 +53,20 @@ public class EndingManager : MonoBehaviour
                 currentEnding = Endings.good;
                 endingIndex = 2;
                 OnChangedEnding?.Invoke();
+                //EndingStorySelector.Instance.SelectEndingStory(endingIndex);
             }
             else if (SpokeWithMother)
             {
                 currentEnding = Endings.neutral;
                 endingIndex = 1;
                 OnChangedEnding?.Invoke();
+                //EndingStorySelector.Instance.SelectEndingStory(endingIndex);
             }
             else
             {
                 currentEnding = Endings.bad;
                 OnChangedEnding?.Invoke();
+                //EndingStorySelector.Instance.SelectEndingStory(endingIndex);
             }
         }
         else
@@ -71,6 +74,7 @@ public class EndingManager : MonoBehaviour
             currentEnding = Endings.bad;
             endingIndex = 0;
             OnChangedEnding?.Invoke();
+            //EndingStorySelector.Instance.SelectEndingStory(endingIndex);
         }
     }
 }

@@ -48,7 +48,6 @@ public class InteractionHandler : MonoBehaviour
         else
         {
             uiPanel.gameObject.SetActive(false);
-            //interactionSymb.gameObject.SetActive(true);
             Time.timeScale = 1;
         }
     }
