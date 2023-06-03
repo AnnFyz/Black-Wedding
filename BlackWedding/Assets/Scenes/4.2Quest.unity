@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 20.259924, g: 25.59874, b: 30.585133, a: 1}
+  m_IndirectSpecularColor: {r: 20.272114, g: 25.620205, b: 30.61747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,32 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6876325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494971761681478384, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917500183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6876329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6876325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &15884561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1156,7 @@ MonoBehaviour:
     type: 3}
   textPrefabItalic: {fileID: 4351313996207320000, guid: b39dbe2741363324da19e004870c7271,
     type: 3}
+  storyText: {fileID: 0}
   buttonPrefab: {fileID: 11455116, guid: 6bf008359afc76b47be0937c5bc4ea12, type: 3}
 --- !u!114 &160685748
 MonoBehaviour:
@@ -2014,7 +2041,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2620,6 +2647,7 @@ MonoBehaviour:
     type: 3}
   textPrefabItalic: {fileID: 4351313996207320000, guid: b39dbe2741363324da19e004870c7271,
     type: 3}
+  storyText: {fileID: 0}
   buttonPrefab: {fileID: 11455116, guid: 6bf008359afc76b47be0937c5bc4ea12, type: 3}
 --- !u!1 &323277122
 GameObject:
@@ -5194,6 +5222,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663056199}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &666610525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494971760149139602, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917500183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &666610529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666610525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &670343747
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,7 +5461,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5717,7 +5771,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6501,7 +6555,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7121,7 +7175,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7581,6 +7635,32 @@ Transform:
   m_Father: {fileID: 323277123}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.6281581, y: 0.8274803, z: -2.415348}
+--- !u!1 &896550436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494971760414840413, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917500183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &896550440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896550436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &933583437
 GameObject:
   m_ObjectHideFlags: 0
@@ -8004,7 +8084,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8430,6 +8510,32 @@ Transform:
   m_Father: {fileID: 436007887}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -20.410404, y: -62.903362, z: 7.499474}
+--- !u!1 &1029552374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024594131084169777, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917500183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1029552378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029552374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1031223187
 GameObject:
   m_ObjectHideFlags: 0
@@ -9411,6 +9517,8 @@ MonoBehaviour:
   uiPanel: {fileID: 163704307}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
+  <isPlayerNearby>k__BackingField: 0
+  wasTaskPerformed: 0
   titleOfNPC: 0
   ink: {fileID: 314034426}
 --- !u!114 &1166352698
@@ -9847,6 +9955,7 @@ MonoBehaviour:
     type: 3}
   textPrefabItalic: {fileID: 4351313996207320000, guid: b39dbe2741363324da19e004870c7271,
     type: 3}
+  storyText: {fileID: 0}
   buttonPrefab: {fileID: 11455116, guid: 6bf008359afc76b47be0937c5bc4ea12, type: 3}
 --- !u!114 &1267278062
 MonoBehaviour:
@@ -10028,9 +10137,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 754e77390c665204d98d2cdb7a087f5d, type: 2}
+  m_NeedUpdateStaticLightingSky: 0
   m_StaticLightingSkyUniqueID: 0
+  m_LastComputedHash: 0
   m_StaticLightingCloudsUniqueID: 0
+  m_LastComputedCloudHash: 0
+  m_SkySettings: {fileID: 0}
+  m_SkySettingsFromProfile: {fileID: 0}
+  m_CloudSettings: {fileID: 0}
+  m_CloudSettingsFromProfile: {fileID: 0}
   m_StaticLightingVolumetricClouds: 0
+  m_LastComputedVolumetricCloudHash: 0
+  m_VolumetricClouds: {fileID: 0}
+  m_VolumetricCloudSettingsFromProfile: {fileID: -5120101012087012142, guid: 754e77390c665204d98d2cdb7a087f5d,
+    type: 2}
+  m_VolumeSkyList: []
+  m_VolumeCloudsList: []
 --- !u!4 &1275631647
 Transform:
   m_ObjectHideFlags: 1
@@ -10635,6 +10757,8 @@ MonoBehaviour:
   uiPanel: {fileID: 1294402226}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
+  <isPlayerNearby>k__BackingField: 0
+  wasTaskPerformed: 0
   titleOfNPC: 1
   ink: {fileID: 160685747}
 --- !u!65 &1333339016
@@ -11044,6 +11168,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7376206923063533235}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1400744725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494971761022344169, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917500183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400744729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400744725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!114 &1410871367 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3000186343675708733, guid: 513c970f1545c1c4fbefbcd4ed61a70d,
@@ -12146,7 +12296,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -12436,6 +12586,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539672918}
   m_CullTransparentMesh: 1
+--- !u!1 &1540250928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494971761829942959, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917500183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1540250932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540250928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1547944527
 GameObject:
   m_ObjectHideFlags: 0
@@ -14731,7 +14907,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -15721,6 +15897,8 @@ MonoBehaviour:
   uiPanel: {fileID: 1490988628}
   quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
+  <isPlayerNearby>k__BackingField: 0
+  wasTaskPerformed: 0
   titleOfNPC: 2
   ink: {fileID: 1267278061}
 --- !u!65 &2027638247
@@ -16009,6 +16187,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3743240868652513750, guid: 8a122fa74ba75ad4fb9c5aaee84fe91e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4664201838647537389, guid: 8a122fa74ba75ad4fb9c5aaee84fe91e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -16224,6 +16407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holyCandle: {fileID: 1155833538}
+  objectInteraction: {fileID: 0}
   wasTaskPerformed: 0
 --- !u!4 &59001885551983250
 Transform:
@@ -18300,6 +18484,7 @@ MonoBehaviour:
     type: 3}
   textPrefabItalic: {fileID: 4351313996207320000, guid: b39dbe2741363324da19e004870c7271,
     type: 3}
+  storyText: {fileID: 0}
   buttonPrefab: {fileID: 11455116, guid: 6bf008359afc76b47be0937c5bc4ea12, type: 3}
 --- !u!114 &8664039060496983784
 MonoBehaviour:
