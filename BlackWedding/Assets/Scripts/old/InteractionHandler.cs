@@ -78,7 +78,6 @@ public class InteractionHandler : MonoBehaviour
         uiPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
         GameManager.Instance.isGamePaused = false;
-        //interactionSymb.gameObject.SetActive(true);
     }
 
     private void Update()

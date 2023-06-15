@@ -26,12 +26,6 @@ public class NPCInteraction : MonoBehaviour
     {
         QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStoryWhileNPCCanvasInactive;
         OnOpenedUIPanel += StartTheStoryWhileNPCCanvasInactive;
-        //if (titleOfNPC == NPCTitle.priest)
-        //{
-        //    UnsubscribeStartStory();
-        //    OnOpenedUIPanel += LoadPriestEndingStory;
-        //}
-        // the same updating for ending story
         QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
         uiPanel.gameObject.SetActive(false);
@@ -47,12 +41,6 @@ public class NPCInteraction : MonoBehaviour
             {
                 GameManager.Instance.isSpeaking = true;
                 ShowUIPanel();
-                //if (titleOfNPC == NPCTitle.priest)
-                //{
-
-                //    ink.LoadNewStory();
-                //    OnOpenedUIPanel += LoadPriestEndingStory;
-                //}
             }
         }
         if (GameManager.Instance.isSpeaking)
@@ -61,11 +49,6 @@ public class NPCInteraction : MonoBehaviour
             {
                 GameManager.Instance.isSpeaking = false;
                 CloseUIPanel();
-                //if (titleOfNPC == NPCTitle.priest)
-                //{
-                //    ink.LoadNewStory();
-                //    OnOpenedUIPanel += LoadPriestEndingStory;
-                //}
 
             }
         }
@@ -133,7 +116,6 @@ public class NPCInteraction : MonoBehaviour
 
     void RotateTowardsPlayer(Transform player)
     {
-        //transform.LookAt(player, Vector3.up); 
         gameObject.transform.GetChild(0).transform.LookAt(player);
     }
 
@@ -161,7 +143,6 @@ public class NPCInteraction : MonoBehaviour
         if (titleOfNPC != NPCTitle.priest)
         {
             ink.LoadNewStory();
-            ink.LoadSt();
         }
     }
 
@@ -170,37 +151,9 @@ public class NPCInteraction : MonoBehaviour
         if (titleOfNPC != NPCTitle.priest)
         {
             ink.StartStory();
-            ink.LoadSt();
         }
     }
 
 }
 
-
-
-//void LoadPriestEndingStory()
-//{
-
-//    if (titleOfNPC == NPCTitle.priest)
-//    {
-//        if (EndingManager.Instance != null)
-//        {
-//            OnOpenedUIPanel += ink.StartSelectedEndingStory;
-//            EndingManager.Instance.OnChangedEnding += ink.SelectEndingStory;
-//            Debug.Log("Load priest ending story");
-//        }
-//    }
-//}
-
-//void UnsubscribeStartStory()
-//{
-//    if (EndingManager.Instance != null)
-//    {
-//        if (titleOfNPC == NPCTitle.priest)
-//        {
-//            OnOpenedUIPanel -= ink.StartStory;
-//            Debug.Log("Unsubscribe start story");
-//        }
-//    }
-//}
 

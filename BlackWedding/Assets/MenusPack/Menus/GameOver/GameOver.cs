@@ -10,11 +10,6 @@ public class GameOver : MonoBehaviour
     public SceneFader sceneFader;
     public int mainMenuIndex = 0;
     public GameObject ui;
-    private void OnEnable()
-    {
-       // rounsText.text = PlayerStats.Rounds.ToString();
-    }
-
     public void Toggle()
     {
         ui.SetActive(!ui.activeSelf);

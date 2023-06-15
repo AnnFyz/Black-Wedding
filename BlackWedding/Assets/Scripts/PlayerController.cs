@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        //_rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.fixedDeltaTime);
         if (_input.x  > 0 || _input.x < 0 || _input.z > 0 || _input.z < 0)
         {
             _rb.velocity = transform.forward * _speed * Time.fixedDeltaTime;

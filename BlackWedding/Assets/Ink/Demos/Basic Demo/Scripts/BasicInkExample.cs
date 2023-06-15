@@ -24,33 +24,9 @@ public class BasicInkExample : MonoBehaviour {
 		RemoveChildren();
 		StartStory();
 		NPC = GetComponentInParent<NPCInteraction>();
-        //QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadNewStory;
-        //QuestManager.Instance.currentQuest.OnCompeletedQuest += LoadSt;
-  //      if (NPC != null)
-  //      {
-  //          NPC.OnOpenedUIPanel += StartStory;
-		//	NPC.OnOpenedUIPanel += LoadSt;
-		//}
 	}
 
-	public void LoadSt()
-    {
-		//Debug.Log("Load new Story");
-    }
-
-  //  private void Start()
-  //  {
-  //      if(NPC.titleOfNPC == NPCTitle.priest)
-  //      {
-		//	if (EndingManager.Instance != null)
-		//	{
-		//		NPC.OnOpenedUIPanel -= StartStory;
-		//		Debug.Log("Unsubscribe start story");
-		//		NPC.OnOpenedUIPanel += StartSelectedEndingStory;
-		//		EndingManager.Instance.OnChangedEnding += SelectEndingStory;
-		//	}
-		//}
-  //  }
+	
     // Creates a new Story object with the compiled story which we can then play!
     public void StartStory () 
 	{
@@ -78,31 +54,6 @@ public class BasicInkExample : MonoBehaviour {
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
-
-            //if (story.currentTags.Contains("Bad"))
-            //{
-            //    storyIndex = 0;
-            //    endingStoryIndex = 0;
-            //    EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-            //   // EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-            //    Debug.Log("endingStoryIndex " + endingStoryIndex + " Bad");
-            //}
-            //if (story.currentTags.Contains("Neutral"))
-            //{
-            //    storyIndex = 1;
-            //    endingStoryIndex = 1;
-            //    EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-            //   // EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-            //    Debug.Log("endingStoryIndex " + endingStoryIndex + " Neutral");
-            //}
-            //if (story.currentTags.Contains("Good"))
-            //{
-            //    storyIndex = 2;
-            //    endingStoryIndex = 2;
-            //    EndingStorySelector.Instance.endingStoryIndex = endingStoryIndex;
-            //    //EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
-            //    Debug.Log("endingStoryIndex " + endingStoryIndex + " Good");
-            //}
         }
 
 		// Display all the choices, if there are any!
@@ -118,12 +69,7 @@ public class BasicInkExample : MonoBehaviour {
 		}
 
 		// If we've read all the content and there's no choices, the story is finished!
-		//else {
-		//	Button choice = CreateChoiceView("End of story.\nRestart?");
-		//	choice.onClick.AddListener(delegate{
-		//		StartStory();
-		//	});
-		//}
+		
 		else if (story.currentChoices.Count == 0)
 		{
 			if(EndingManager.Instance != null && NPC != null)
@@ -161,15 +107,12 @@ public class BasicInkExample : MonoBehaviour {
 
 		if (story.currentTags.Contains("Ending"))
 		{
-			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
 			Button choice = CreateChoiceView("End the story");
 			choice.onClick.AddListener(delegate
 			{
 				Debug.Log("LoadEndingScene");
 				SceneFader.Instance.FadeTo();
-				//GameManager.Instance.LoadNextScene();
 				Time.timeScale = 1f;
-				//GameManager.Instance.isGamePaused = false;
 				if(EndingStorySelector.Instance != null)
                 {
 					EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
@@ -282,18 +225,6 @@ public class BasicInkExample : MonoBehaviour {
 		}
     }
 
-  //  void StartEndingStory(int endingStoryIndex)
-  //  {
-  //      Canvas.ForceUpdateCanvases();
-		////if (inkJSONAssets.Length > 0 && storyIndex < inkJSONAssets.Length)
-		////{
-		//story = new Story(inkJSONAssetsEndings[endingStoryIndex].text);
-  //      Debug.Log("StartEndingStory " + endingStoryIndex);
-  //      //}
-  //      if (OnCreateStory != null) OnCreateStory(story);
-  //      RefreshView();
-  //  }
-
 	public void StartEndingStory()
 	{
 		Canvas.ForceUpdateCanvases();
@@ -302,9 +233,6 @@ public class BasicInkExample : MonoBehaviour {
 		RefreshView();
 	}
 
-
-    //[SerializeField]
-    //private TextAsset currentInkJSONAsset = null;
     [SerializeField]
 	private TextAsset[] inkJSONAssets;
 	public Story story;

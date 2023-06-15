@@ -28,7 +28,6 @@ public class PriestsEndingSelection : MonoBehaviour
                 {
 
                     ink.LoadNewStory();
-                    //OnOpenedUIPanel += LoadPriestEndingStory;
                 }
             }
         }
@@ -39,7 +38,6 @@ public class PriestsEndingSelection : MonoBehaviour
                 if (titleOfNPC == NPCTitle.priest)
                 {
                     ink.LoadNewStory();
-                    //OnOpenedUIPanel += LoadPriestEndingStory;
                 }
 
             }
@@ -54,10 +52,6 @@ public class PriestsEndingSelection : MonoBehaviour
         {
             if (EndingManager.Instance != null)
             {
-                //OnOpenedUIPanel += ink.StartSelectedEndingStory;                
-                //Debug.Log("Load priest ending story");
-                //ink.LoadNewStory();
-                //ink.storyIndex = ink.endingStoryIndex;
                 ink.StartEndingStory();
                 Debug.Log("StartSelectedEndingStory");
             }
@@ -71,7 +65,6 @@ public class PriestsEndingSelection : MonoBehaviour
             if (titleOfNPC == NPCTitle.priest)
             {
                 gameObject.GetComponent<NPCInteraction>().OnOpenedUIPanel -= ink.StartStory;
-                //Debug.Log("Unsubscribe start story");
             }
         }
     }

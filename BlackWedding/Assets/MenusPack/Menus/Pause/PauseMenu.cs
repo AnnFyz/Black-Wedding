@@ -37,7 +37,6 @@ public class PauseMenu : MonoBehaviour
     {
         ui.SetActive(!ui.activeSelf);
         GameManager.Instance.PauseAllActions(ui.activeSelf);
-       // PauseAllActions();
     }
 
     public void Retry()
