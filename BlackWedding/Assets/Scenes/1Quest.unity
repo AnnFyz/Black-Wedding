@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 21.519238, g: 28.520998, b: 40.17478, a: 1}
+  m_IndirectSpecularColor: {r: 21.506836, g: 28.494308, b: 40.116577, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1807,8 +1807,8 @@ MonoBehaviour:
   endingStoryIndex: 0
   paintersObj: {fileID: 0}
   inkJSONAssets:
-  - {fileID: 4900000, guid: 3b2eeb5e257a7e1469a07235bd31b472, type: 3}
-  - {fileID: 4900000, guid: 31fde45c082374b4fb3798defb4cedc4, type: 3}
+  - {fileID: 4900000, guid: 4919be8bbf36e884ca29804310c02ff3, type: 3}
+  - {fileID: 4900000, guid: a70248b761203594e913b2399c00b75a, type: 3}
   canvas: {fileID: 314034423}
   TextPrefab: {fileID: 4351313996207320000, guid: e89f0cbd29d68ad40bc3913979d8bb5e,
     type: 3}
@@ -5098,7 +5098,7 @@ PrefabInstance:
     - target: {fileID: 3628262580307945730, guid: c9d5fb3461395564ca75ffcce1fcdb6d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28999996
+      value: -0.239
       objectReference: {fileID: 0}
     - target: {fileID: 3628262580307945730, guid: c9d5fb3461395564ca75ffcce1fcdb6d,
         type: 3}
@@ -13892,7 +13892,7 @@ MonoBehaviour:
   endingStoryIndex: 0
   paintersObj: {fileID: 0}
   inkJSONAssets:
-  - {fileID: 4900000, guid: 0fbb05066c39d5443b2ea99217528656, type: 3}
+  - {fileID: 4900000, guid: 855b518bd8e0da8429edc4f3da858170, type: 3}
   canvas: {fileID: 3678402850985266735}
   TextPrefab: {fileID: 4351313996207320000, guid: e89f0cbd29d68ad40bc3913979d8bb5e,
     type: 3}
@@ -15401,6 +15401,31 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 418718071}
+    - target: {fileID: 7325326704233821083, guid: cdd165e148ed6244dbd548ef9418f608,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.260061
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325326704233821083, guid: cdd165e148ed6244dbd548ef9418f608,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.7510002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325326704233821083, guid: cdd165e148ed6244dbd548ef9418f608,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.3759875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325326705162042843, guid: cdd165e148ed6244dbd548ef9418f608,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.048619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325326705162042843, guid: cdd165e148ed6244dbd548ef9418f608,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.540521
+      objectReference: {fileID: 0}
     - target: {fileID: 7325326705377672224, guid: cdd165e148ed6244dbd548ef9418f608,
         type: 3}
       propertyPath: m_Name
@@ -16987,7 +17012,7 @@ MonoBehaviour:
   endingStoryIndex: 0
   paintersObj: {fileID: 0}
   inkJSONAssets:
-  - {fileID: 4900000, guid: f02f5e9b0af418144b5f4b7e7f764bfb, type: 3}
+  - {fileID: 4900000, guid: 350df578f273f174bab4dbb405c761aa, type: 3}
   canvas: {fileID: 9183008057325740823}
   TextPrefab: {fileID: 4351313996207320000, guid: e89f0cbd29d68ad40bc3913979d8bb5e,
     type: 3}

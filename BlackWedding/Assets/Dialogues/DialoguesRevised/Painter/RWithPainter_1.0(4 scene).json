@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[["^\"I beg your pardon, but I can't talk right now,","\n","^whispers the painter with a tinge of regret. ","#","^Italic","/#","\n","ev","str","^End dialogue","/str","/ev",{"*":"0.c-0","flg":20},{"c-0":["\n","end",{"->":"0.g-0"},{"#f":5}],"g-0":["done",{"#f":5}]}],"done",{"#f":1}],"listDefs":{}}
