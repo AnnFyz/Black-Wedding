@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 21.506836, g: 28.494308, b: 40.116577, a: 1}
+  m_IndirectSpecularColor: {r: 21.604134, g: 28.610956, b: 40.23114, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15660,35 +15660,85 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1961750331377668088, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_LocalRotation.w
+      value: 0.64268035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0010755671
+      objectReference: {fileID: 0}
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7660351
+      objectReference: {fileID: 0}
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.012293786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2024594131084169777, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6301601572646438193, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6110015251530175267, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
         type: 3}
-      propertyPath: m_Intensity
-      value: 4254.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110015251530175267, guid: d90ed51c4100ccb4b990853a9a5487e2,
-        type: 3}
-      propertyPath: m_FlareTint.b
+      propertyPath: X
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6110015251530175267, guid: d90ed51c4100ccb4b990853a9a5487e2,
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
         type: 3}
-      propertyPath: m_FlareTint.g
-      value: 0.38823533
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110015251530175267, guid: d90ed51c4100ccb4b990853a9a5487e2,
-        type: 3}
-      propertyPath: m_FlareTint.r
+      propertyPath: Y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunAngle.angleX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunAngle.angleY
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunAngle.angleZ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunStartAngle.angleX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunStartAngle.angleY
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534147048450905558, guid: d90ed51c4100ccb4b990853a9a5487e2,
+        type: 3}
+      propertyPath: sunStartAngle.angleZ
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7534147049781812064, guid: d90ed51c4100ccb4b990853a9a5487e2,
         type: 3}
@@ -15749,11 +15799,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189679991250175728, guid: d90ed51c4100ccb4b990853a9a5487e2,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 4254.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d90ed51c4100ccb4b990853a9a5487e2, type: 3}

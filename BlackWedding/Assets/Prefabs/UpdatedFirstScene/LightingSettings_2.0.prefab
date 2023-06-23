@@ -278,7 +278,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4064.3257
+  m_Intensity: 4254.67
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 4064.3257
+  m_Intensity: 4254.67
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
   m_FlareSize: 2.75
-  m_FlareTint: {r: 1, g: 0.38841486, b: 0, a: 1}
+  m_FlareTint: {r: 1, g: 0.38823533, b: 0, a: 1}
   m_FlareFalloff: 30
   m_SurfaceTexture: {fileID: 2800000, guid: 8f6d1aed7eecf4c44838afbadc25eca9, type: 3}
   m_SurfaceTint: {r: 1, g: 0.88211733, b: 0.6179246, a: 1}
@@ -672,6 +672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6301601572646438193}
+  - component: {fileID: 7534147048450905558}
   m_Layer: 0
   m_Name: SunAxis
   m_TagString: Untagged
@@ -695,6 +696,19 @@ Transform:
   m_Father: {fileID: 6301601572102904303}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -64.82, z: 0}
+--- !u!114 &7534147048450905558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301601572646438192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af398e279e1edd249808d4336e6dfeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunSpeed: 0
 --- !u!1 &6357391660091573206
 GameObject:
   m_ObjectHideFlags: 0
