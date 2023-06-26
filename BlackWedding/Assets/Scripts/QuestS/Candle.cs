@@ -21,7 +21,7 @@ public class Candle : MonoBehaviour
     public Material litMat;
     ObjectInteraction objectInteraction;
     public bool  wasTaskPerformed = false;
-    public bool wasCandleQuestPerformed = false;
+    public static bool wasCandleQuestPerformed = false;
     public GameObject light;
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class Candle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && currentState != CandleState.lit && !wasTaskPerformed)
+        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && currentState != CandleState.lit && !wasTaskPerformed && !wasCandleQuestPerformed)
         {
             currentState = CandleState.lit;
             SetRightMatAndParticles();
@@ -51,6 +51,13 @@ public class Candle : MonoBehaviour
             Perform();
             wasTaskPerformed = true;
         }
+        else if(Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && currentState != CandleState.lit && wasCandleQuestPerformed)
+        {
+            currentState = CandleState.lit;
+            SetRightMatAndParticles();
+        }
+
+
 
         if (!isCoroutineExecuting && !wasCandleQuestPerformed)
         {
@@ -91,6 +98,10 @@ public class Candle : MonoBehaviour
         {
             light.SetActive(true);
             renderer.material = litMat;
+            if(wasCandleQuestPerformed == true)
+            {
+                objectInteraction.isInteractable = false;
+            }
         }
     }
 
@@ -120,7 +131,10 @@ public class Candle : MonoBehaviour
     void CancelExtinguishAfterCompletingQuest()
     {
         wasCandleQuestPerformed = true;
-        objectInteraction.isInteractable = false;
+        if (currentState == CandleState.lit)
+        {
+            objectInteraction.isInteractable = false;
+        }
         if (this.gameObject.GetComponent<Candle>())
         {
             StopAllCoroutines();

@@ -71,7 +71,7 @@ Once you find what you seek, show it to the artist. I believe it will convince h
 
 
 == Ending==
- the ghostly groom disappeared into the ether, leaving you alone  #LoadNewScene
-* [Stay here] 
+ the ghostly groom disappeared into the ether, leaving you alone  
+* [End dialogue] #LoadNewScene
 -> END
 

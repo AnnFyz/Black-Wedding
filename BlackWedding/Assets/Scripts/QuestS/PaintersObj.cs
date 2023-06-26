@@ -20,13 +20,17 @@ public class PaintersObj : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && !wasTaskPerformed)
+        if (!wasTaskPerformed)
         {
-            Debug.Log("Collect painters obj");
-            Perform();
-            dialogueCanvas.SetActive(true);
-            wasTaskPerformed = true;
+            if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && !wasTaskPerformed)
+            {
+                Debug.Log("Collect painters obj");
+                Perform();
+                dialogueCanvas.SetActive(true);
+                wasTaskPerformed = true;
+            }
         }
+      
 
         if (!GameManager.Instance.isGamePaused)
         {

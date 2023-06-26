@@ -58,9 +58,7 @@ public class BasicInkExample : MonoBehaviour {
 
 			if (story.currentTags.Contains("Ending"))
 			{
-				//Button choice = CreateChoiceView("End the story");
-				//choice.onClick.AddListener(delegate
-				//{
+				
 					Debug.Log("LoadEndingScene");
 					SceneFader.Instance.FadeTo();
 					Time.timeScale = 1f;
@@ -69,8 +67,19 @@ public class BasicInkExample : MonoBehaviour {
 						EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
 
 					}
+			}
 
-				//});
+			if (story.currentTags.Contains("LoadNewScene"))
+			{
+				//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+				Button choice = CreateChoiceView("Start new chapter?");
+				choice.onClick.AddListener(delegate
+				{
+					SceneFader.Instance.FadeTo();
+					GameManager.Instance.LoadNextScene();
+					Time.timeScale = 1f;
+					//GameManager.Instance.isGamePaused = false;
+				});
 			}
 
 		}
@@ -111,18 +120,18 @@ public class BasicInkExample : MonoBehaviour {
 			}
 		}
 
-		if (story.currentTags.Contains("LoadNewScene"))
-		{
-			//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
-			Button choice = CreateChoiceView("Start new chapter?");
-			choice.onClick.AddListener(delegate
-			{
-				SceneFader.Instance.FadeTo();
-				GameManager.Instance.LoadNextScene();
-				Time.timeScale = 1f;
-				//GameManager.Instance.isGamePaused = false;
-			});
-		}
+		//if (story.currentTags.Contains("LoadNewScene"))
+		//{
+		//	//Button choice = CreateChoiceView("End of story.\nLoad new scene?");
+		//	Button choice = CreateChoiceView("Start new chapter?");
+		//	choice.onClick.AddListener(delegate
+		//	{
+		//		SceneFader.Instance.FadeTo();
+		//		GameManager.Instance.LoadNextScene();
+		//		Time.timeScale = 1f;
+		//		//GameManager.Instance.isGamePaused = false;
+		//	});
+		//}
 
 		if (story.currentTags.Contains("Ending"))
 		{
