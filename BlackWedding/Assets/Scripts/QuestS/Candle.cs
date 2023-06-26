@@ -45,7 +45,6 @@ public class Candle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && objectInteraction.isPlayerNearby && currentState != CandleState.lit && !wasTaskPerformed)
         {
-            Debug.Log("Make lit");
             currentState = CandleState.lit;
             SetRightMatAndParticles();
             IncreaseTimeForRandomExtinguish();
@@ -76,7 +75,6 @@ public class Candle : MonoBehaviour
             yield return new WaitForSeconds(time);
             currentState = CandleState.extinguished;
             ReversePerformed();
-            Debug.Log(currentState);
             SetRightMatAndParticles();
         }
         isCoroutineExecuting = false;
@@ -121,8 +119,13 @@ public class Candle : MonoBehaviour
 
     void CancelExtinguishAfterCompletingQuest()
     {
-        Debug.Log("Cancel");
-        StopAllCoroutines();        
         wasCandleQuestPerformed = true;
+        objectInteraction.isInteractable = false;
+        if (this.gameObject.GetComponent<Candle>())
+        {
+            StopAllCoroutines();
+            Debug.Log("Cancel");
+        }
+        
     }
 }

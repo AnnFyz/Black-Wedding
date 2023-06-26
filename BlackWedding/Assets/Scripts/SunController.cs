@@ -13,11 +13,12 @@ public class SunAngle
 public class SunController : MonoBehaviour
 {
     [SerializeField] SunAngle sunStartAngle;
-    [SerializeField] SunAngle sunAngle;
+    [SerializeField] SunAngle sunAngleOffset;
     [SerializeField] SunAngle sunCurrentAngle;
     [SerializeField] float sunSpeed = 0;
 
-    [SerializeField] bool X,Y, Z;
+    [SerializeField] bool X, Y, Z;
+    [SerializeField] bool XNegative, YNegative, ZNegative;
     private void Start()
     {
         sunCurrentAngle.angleX = 0;
@@ -30,18 +31,24 @@ public class SunController : MonoBehaviour
     {
         if (X)
         {
-            sunCurrentAngle.angleX = Mathf.PingPong(Time.time * sunSpeed, sunAngle.angleX);
+
+            sunCurrentAngle.angleX = Mathf.PingPong(Time.time * sunSpeed, sunAngleOffset.angleX);
+
         }
         if (Y)
         {
-            sunCurrentAngle.angleY = Mathf.PingPong(Time.time * sunSpeed, sunAngle.angleY);
+
+            sunCurrentAngle.angleY = Mathf.PingPong(Time.time * sunSpeed, sunAngleOffset.angleY);
+
+
         }
         if (Z)
         {
-            sunCurrentAngle.angleZ = Mathf.PingPong(Time.time * sunSpeed, sunAngle.angleZ);
+            sunCurrentAngle.angleZ = Mathf.PingPong(Time.time * sunSpeed, sunAngleOffset.angleZ);
         }
 
-        transform.localRotation = Quaternion.Euler(sunCurrentAngle.angleX + sunAngle.angleX, sunCurrentAngle.angleY + sunAngle.angleY, sunCurrentAngle.angleZ+ +sunAngle.angleZ);   
+
+        transform.localRotation = Quaternion.Euler(sunStartAngle.angleX + sunCurrentAngle.angleX, sunStartAngle.angleY - sunCurrentAngle.angleY, sunStartAngle.angleZ + +sunCurrentAngle.angleZ);
     }
 }
 

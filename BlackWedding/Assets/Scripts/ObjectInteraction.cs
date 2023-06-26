@@ -17,7 +17,12 @@ public class ObjectInteraction : MonoBehaviour
     public Action OnOpenedUIPanel;
     public bool wasSymbolAlreadyActivated = false;
 
-    private void Start()
+    private  void Start()
+    {
+        StartHandler();
+    }
+
+    public virtual void StartHandler()
     {
         QuestManager.Instance.OnUpdatedQuest += UpdateRefToQuest;
         quest = QuestManager.Instance.currentQuest;
@@ -31,8 +36,17 @@ public class ObjectInteraction : MonoBehaviour
         }
     }
 
+    public virtual void DeactivateSymbol()
+    {
+        interactionSymb.gameObject.SetActive(false);
+    }
 
     private void Update()
+    {
+        UpdateHandler();
+    }
+
+    public virtual void UpdateHandler()
     {
         if (!GameManager.Instance.isGamePaused)
         {
@@ -64,7 +78,7 @@ public class ObjectInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && isInteractable)
         {
@@ -76,7 +90,7 @@ public class ObjectInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -87,7 +101,7 @@ public class ObjectInteraction : MonoBehaviour
             player = null;
         }
     }
-    void ShowUIPanel()
+    public void ShowUIPanel()
     {
         if (interactionSymb.gameObject.activeSelf)
         {

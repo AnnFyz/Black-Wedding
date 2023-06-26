@@ -23,9 +23,13 @@ public class QuestManager : MonoBehaviour
         {
             currentQuest.currentAmountOfPerformedQuestObjTasks = 0;
             questIndex++;
-            Debug.Log("Quest was updated");
+            if (quests.Length > 1 && questIndex < quests.Length)
+            {
+                currentQuest = quests[questIndex];
+                OnUpdatedQuest?.Invoke();
+                Debug.Log("Quest was updated");
+            }
+
         }
-        currentQuest = quests[questIndex];
-        OnUpdatedQuest?.Invoke();
     }
 }

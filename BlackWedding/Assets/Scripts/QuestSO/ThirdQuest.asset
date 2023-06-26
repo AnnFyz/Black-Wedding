@@ -16,7 +16,7 @@ MonoBehaviour:
   isQuestCompleted: 0
   amountOfAllWithObjInteractions: 0
   amountOfAllWithNPCInteractions: 1
-  amountOfAllWithQuestObjInteractions: 3
+  amountOfAllWithQuestObjInteractions: 5
   startAmountOfAllObjTasks: 0
   startAmountOfAllNPCTasks: 1
   startAmountOfQuestObjNPCTasks: 3
