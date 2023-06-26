@@ -54,10 +54,29 @@ public class BasicInkExample : MonoBehaviour {
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
-        }
+
+
+			if (story.currentTags.Contains("Ending"))
+			{
+				//Button choice = CreateChoiceView("End the story");
+				//choice.onClick.AddListener(delegate
+				//{
+					Debug.Log("LoadEndingScene");
+					SceneFader.Instance.FadeTo();
+					Time.timeScale = 1f;
+					if (EndingStorySelector.Instance != null)
+					{
+						EndingStorySelector.Instance.SelectEndingStory(endingStoryIndex);
+
+					}
+
+				//});
+			}
+
+		}
 
 		// Display all the choices, if there are any!
-		if(story.currentChoices.Count > 0) {
+		if (story.currentChoices.Count > 0) {
 			for (int i = 0; i < story.currentChoices.Count; i++) {
 				Choice choice = story.currentChoices [i];
 				Button button = CreateChoiceView (choice.text.Trim ());

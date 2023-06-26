@@ -16,6 +16,7 @@ public class ObjectInteraction : MonoBehaviour
     public bool isInteractable = false;
     public Action OnOpenedUIPanel;
     public bool wasSymbolAlreadyActivated = false;
+    public bool isPaintersObj = false;
 
     private  void Start()
     {
@@ -43,7 +44,10 @@ public class ObjectInteraction : MonoBehaviour
 
     private void Update()
     {
-        UpdateHandler();
+        if (!isPaintersObj)
+        {
+            UpdateHandler();
+        }
     }
 
     public virtual void UpdateHandler()

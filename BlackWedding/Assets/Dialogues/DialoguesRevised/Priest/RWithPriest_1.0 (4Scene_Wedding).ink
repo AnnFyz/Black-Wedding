@@ -5,10 +5,10 @@ the priest gazes at you with approval. #Italic
 
 
 ==Start==
-Now that everything is prepared, we can proceed with the wedding. 
+Now that everything is prepared, we can proceed with the wedding. #Bad 
 * [Start the Black Wedding (End dialogue)] 
   Very well, my child #Ending
   -> END
-* [I...I need some time to think. To consider what I am about to do. (End dialogue)]
+* [I...I need some time to think. To consider what I am about to do. (End dialogue)] 
     -> END
 

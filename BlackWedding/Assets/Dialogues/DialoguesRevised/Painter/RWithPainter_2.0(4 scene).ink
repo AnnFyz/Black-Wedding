@@ -1,7 +1,5 @@
 "I beg your pardon, can't talk right now,
 replied the painter with a tinge of regret. # Italic
-* [End dialogue]
-    -> END
     
 *[What if I tell you that the priest's prohibitions should no longer affect you?]
 The painter listens intently, a curious look on her face. # Italic

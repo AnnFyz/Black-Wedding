@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 28.012947, g: 50.901623, b: 146.45457, a: 1}
+  m_IndirectSpecularColor: {r: 27.969196, g: 50.853493, b: 146.63254, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5945,7 +5945,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642551997}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.94591564, z: 0, w: 0.32441285}
   m_LocalPosition: {x: -0.07428932, y: -0.371, z: -0.0524292}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5955,7 +5955,7 @@ Transform:
   - {fileID: 75553994}
   m_Father: {fileID: 1333339017}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 142.14, z: 0}
 --- !u!65 &642551999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16491,7 +16491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionSymb: {fileID: 971144089}
   uiPanel: {fileID: 163704307}
-  quest: {fileID: 11400000, guid: d35035d570184164c87ae373016b2b91, type: 2}
+  quest: {fileID: 11400000, guid: 9f38b35a34c61754ca6a579ecadfe63b, type: 2}
   defaultAngle: {x: 0, y: 0, z: 0}
   titleOfNPC: 0
   ink: {fileID: 314034426}
@@ -24167,7 +24167,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
     - target: {fileID: 4664201838647537389, guid: 8a122fa74ba75ad4fb9c5aaee84fe91e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -61721,6 +61722,7 @@ MonoBehaviour:
   isSecondQuestObj: 1
   isInteractable: 0
   wasSymbolAlreadyActivated: 0
+  isPaintersObj: 0
 --- !u!1 &5460739453134388689
 GameObject:
   m_ObjectHideFlags: 0
@@ -95811,7 +95813,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6301601572953062951}
-  m_LocalRotation: {x: 0, y: -0.53597414, z: 0, w: 0.84423447}
+  m_LocalRotation: {x: -0.058731943, y: -0.49518552, z: 0.016541334, w: 0.866642}
   m_LocalPosition: {x: -95.73, y: -16.04, z: 103.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -95819,7 +95821,7 @@ Transform:
   - {fileID: 1737922699454462747}
   m_Father: {fileID: 6301601573482406648}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -64.82, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.9, y: -59.7, z: 5}
 --- !u!1 &6301601572953062951
 GameObject:
   m_ObjectHideFlags: 0
@@ -95829,6 +95831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6301601572953062950}
+  - component: {fileID: 6301601572953062952}
   m_Layer: 0
   m_Name: SunAxis
   m_TagString: Untagged
@@ -95836,6 +95839,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!114 &6301601572953062952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301601572953062951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af398e279e1edd249808d4336e6dfeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunStartAngle:
+    angleX: -4.9
+    angleY: -59.7
+    angleZ: 5
+  sunAngleOffset:
+    angleX: 0
+    angleY: 0
+    angleZ: 80
+  sunCurrentAngle:
+    angleX: 0
+    angleY: 0
+    angleZ: 0
+  sunSpeed: 1
+  X: 0
+  Y: 0
+  Z: 1
+  XNegative: 0
+  YNegative: 0
+  ZNegative: 0
 --- !u!4 &6301601573482406648
 Transform:
   m_ObjectHideFlags: 0

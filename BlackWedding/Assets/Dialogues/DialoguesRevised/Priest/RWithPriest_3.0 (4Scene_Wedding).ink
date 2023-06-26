@@ -11,7 +11,7 @@ the priest gazes at you with approval. #Italic
   *****[I may regret it, Father, but I won't regret doing what I know is right. For me and Avra.]
  Your decision to abandon our community and reject our sacred traditions is a clear act of betrayal. Know that by turning your back on us, you have sealed your own fate and doomed your groom's journey to the afterlife.
  ******[Continue]
- I urge you to reconsider, but if you choose to persist in your heresy, then you are no longer welcome here. May you find peace in the consequences of your actions."#Ending
+ I urge you to reconsider, but if you choose to persist in your heresy, then you are no longer welcome here. May you find peace in the consequences of your actions."
 *******[Accuse the church of hypocrisy] ->Reveal
 *******[I know what is good for me. Thank you for your guidance. Farewell. (End dialogue)] 
 -> Ending
@@ -19,7 +19,7 @@ the priest gazes at you with approval. #Italic
 
 
 ==Reveal==
-You are cybernetically modified, are you not?
+You are cybernetically modified, are you not?  #Good
 I begin to challenge the man with newfound confidence. #Italic
 *[Continue]
 And yet you and the clergy preach against it, claiming that they are against God's will. You exiled so many people - good people, as a result.
@@ -36,9 +36,10 @@ The priest stays silent, but there is bewilderment in his eyes. Fear.#Italic
    The priest takes a step forward, his posture ominous. But you stand your ground, staring him down with a look of fierce determination.#Italic
   ********[I'm the one who makes decisions about my life here. I will not go through with this, and you will not exile me, or the painter.]
    The priest hesitates for a moment, clenching his jaw in defeat.#Italic
+  *********[Continue]
   Very well. Do as you wish. And get out of my church.
- He then walks away, leaving you alone with your newfound knowledge and freedom. #Italic #Ending
-   //*********[End Story]
+ He then walks away, leaving you alone with your newfound knowledge and freedom. #Italic 
+  ***********[End Story] #Ending
   -> Ending
    
    
