@@ -1,0 +1,4 @@
+512x128Half.asset filter=lfs diff=lfs merge=lfs -text
+[D:UserHomess0582319DesktopUnityProjectsBlack-WeddingBlackWeddingAssetsVolume filter=lfs diff=lfs merge=lfs -text
+Fog3D filter=lfs diff=lfs merge=lfs -text
+Textures] filter=lfs diff=lfs merge=lfs -text
